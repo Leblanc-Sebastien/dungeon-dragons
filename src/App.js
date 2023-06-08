@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+
+  const [counterState, setCounterState] = useState(0)
+  const [msgState, setMsgState] = useState("")
+
+  const incrementCounter = () => {
+    setCounterState(counterState + 1)
+  }
+
+  useEffect(() => {
+    if(counterState > 5){
+      setMsgState("Superieur à 5")
+    }
+    else if(counterState < 5){
+      setMsgState("inferieur à 5")
+    }
+    else{
+      setMsgState("")
+    }
+  }, [counterState])
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={incrementCounter}>clik enculé {counterState}</button>     
+           <div>{msgState}</div>
     </div>
   );
 }
