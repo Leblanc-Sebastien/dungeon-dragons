@@ -1,7 +1,19 @@
-h1{
+h1 {
     color: rgb(61, 99, 52);
 }
 
-input{
+input {
     margin: 10px;
 }
+
+.box {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .box :first-child {
+      align-self: center;
+  }

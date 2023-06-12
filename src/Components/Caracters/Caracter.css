@@ -1,0 +1,14 @@
+h2 {
+    color: red
+}
+
+li {
+    list-style: none;
+    border: 1mm solid black;
+    border-radius: 5mm;
+    padding: 2mm;
+    margin: 2mm;
+    width: 250px;
+    height: 250px;
+}
+
