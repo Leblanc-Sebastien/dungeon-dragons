@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Form from "./Components/Form/Form"
 function App() {
 

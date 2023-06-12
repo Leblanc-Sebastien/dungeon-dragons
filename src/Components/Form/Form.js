@@ -76,7 +76,7 @@ export default function Form() {
                     age :
                     <input type="text" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />
                 </label>
-                <button>Valider</button>
+                <button className='btn btn-primary'>Valider</button>
             </form>
             <ul className="box">
                 {createdCaracters.map((caracter, index) => {
