@@ -16,6 +16,13 @@ export default function Form() {
     const [newClassCaracterInput, setNewClassCaracterInput] = useState("")
     const [newAgeCaracterInput, setNewAgeCaracterInput] = useState("")
 
+    
+    const [toggleState, setToggleState] = useState(false)
+
+    const toggleButton = () => {
+        setToggleState(!toggleState)
+    }
+
     const setPseudo = (e) => {
         setNewPseudoCaracterInput(e)
     }
@@ -61,28 +68,57 @@ export default function Form() {
     }
 
     return (
-        <>
-            <h1>Création de personnage 2</h1>
-            <form onSubmit={e => addNewCaracter(e)}>
-                <label>
-                    Pseuso :
-                    <input type="text" name="pseudo" value={newPseudoCaracterInput} onInput={e => setPseudo(e.target.value)} />
-                </label>
-                <label>
-                    classe :
-                    <input type="text" name="classe" value={newClassCaracterInput} onInput={e => setClass(e.target.value)} />
-                </label>
-                <label>
-                    age :
-                    <input type="text" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />
-                </label>
-                <button className='btn btn-primary'>Valider</button>
-            </form>
+        <>  
+            <div className="center">
+                <a className="btn btn-success" href="#popup">Add a caracter</a>
+            </div> 
+            <div id="popup">
+                <div className="popup-content">
+                    <h2>Création de personnage</h2>                   
+                    <form onSubmit={e => addNewCaracter(e)}>
+                        <label>
+                            Pseuso :
+                            <input type="text" name="pseudo" value={newPseudoCaracterInput} onInput={e => setPseudo(e.target.value)} />
+                        </label>
+                        <label>
+                            classe :
+                            <input type="text" name="classe" value={newClassCaracterInput} onInput={e => setClass(e.target.value)} />
+                        </label>
+                        <label>
+                            age :
+                            <input type="text" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />
+                        </label>
+                        <button className="btn btn-primary">Valider</button>
+                </form>
+                    <a href="#" className="close-popup">X</a>
+                </div>                  
+            </div>
+                      
+            
             <ul className="box">
                 {createdCaracters.map((caracter, index) => {
                     return (<Caracter key={index} pseudo={caracter.pseudo} classe={caracter.classe} age={caracter.age} id={caracter.id} deleteCaracter={deleteCaracter} />)
                 })}
             </ul>
+            <table>
+                <thead>
+                    <th scope='col'>Pseudo</th>
+                    <th scope='col'>Classe</th>
+                    <th scope='col'>Age</th>
+                </thead>
+                <tbody>                  
+                    {createdCaracters.map((caracter)=>{
+                        return (
+                        <tr>
+                            <td>{caracter.pseudo}</td>
+                            <td>{caracter.classe}</td>
+                            <td>{caracter.age}</td>
+                            <button className='btn btn-danger m-1' onClick={() => (deleteCaracter(caracter.id))}> - </button>
+                            <button className='btn btn-success m-1'> + </button>
+                        </tr>                              
+                        )})}
+                </tbody>
+            </table>
         </>
     )
 }

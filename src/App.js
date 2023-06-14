@@ -5,8 +5,9 @@ import Form from "./Components/Form/Form"
 function App() {
 
   return (
-    <div className="App">
-        <Form />
+    <div className="App container">
+          <h1>Dungeons & dragons</h1>
+          <Form />
     </div>
   );
 }
