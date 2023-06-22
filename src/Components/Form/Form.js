@@ -9,7 +9,7 @@ export default function Form() {
         { id: uuidv4(), pseudo: "SuGii", classe: "Guerrier", age: "36" },
         { id: uuidv4(), pseudo: "Michel", classe: "Mage", age: "67" },
         { id: uuidv4(), pseudo: "Gimli", classe: "Tueur de troll", age: "159" },
-        { id: uuidv4(), pseudo: "Gandoulfi", classe: "Mage des profondeur des anus", age: "19867" },
+        { id: uuidv4(), pseudo: "Gandoulfi", classe: "Mage des profondeurs des anus", age: "19867" },
     ])
 
     const [newPseudoCaracterInput, setNewPseudoCaracterInput] = useState("")
@@ -70,7 +70,7 @@ export default function Form() {
     return (
         <>  
             <div className="center">
-                <a className="btn btn-success" href="#popup">Add a caracter</a>
+                <a className="btn-add" href="#popup">Add a caracter</a>
             </div> 
             <div id="popup">
                 <div className="popup-content">
@@ -93,18 +93,16 @@ export default function Form() {
                     <a href="#" className="close-popup">X</a>
                 </div>                  
             </div>
-                      
-            
-            <ul className="box">
+            {/* <ul className="box">
                 {createdCaracters.map((caracter, index) => {
                     return (<Caracter key={index} pseudo={caracter.pseudo} classe={caracter.classe} age={caracter.age} id={caracter.id} deleteCaracter={deleteCaracter} />)
                 })}
-            </ul>
-            <table>
-                <thead>
-                    <th scope='col'>Pseudo</th>
-                    <th scope='col'>Classe</th>
-                    <th scope='col'>Age</th>
+            </ul> */}
+            <table className="table-caracter">
+                <thead className="table-caracter">
+                    <th className="th-caracter" scope='col'>Pseudo</th>
+                    <th className="th-caracter" scope='col'>Classe</th>
+                    <th className="th-caracter" scope='col'>Age</th>
                 </thead>
                 <tbody>                  
                     {createdCaracters.map((caracter)=>{
@@ -113,8 +111,8 @@ export default function Form() {
                             <td>{caracter.pseudo}</td>
                             <td>{caracter.classe}</td>
                             <td>{caracter.age}</td>
-                            <button className='btn btn-danger m-1' onClick={() => (deleteCaracter(caracter.id))}> - </button>
-                            <button className='btn btn-success m-1'> + </button>
+                            <button className='btn-delete-table' onClick={() => (deleteCaracter(caracter.id))}> Del </button>
+                            <button className='btn-plus-table'> ... </button>
                         </tr>                              
                         )})}
                 </tbody>

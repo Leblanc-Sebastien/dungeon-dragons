@@ -1,5 +1,29 @@
 h1 {
+    margin: 0;
     color: rgb(61, 99, 52);
+}
+
+.btn-add{
+  background-color: #E1ECC8;
+  color: #A0C49D;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius:5px;
+}
+
+.btn-delete-table, .btn-plus-table{
+  width: 60px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: #E1ECC8;
+  color: #A0C49D;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius:5px;
+  border-color: #E1ECC8;
 }
 
 input {
@@ -7,20 +31,8 @@ input {
 }
 
 .center{
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.center a{
-    padding: 10px 20px;
-    background: #eee;
-    color: #111;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius:5px;
+    top:30%;
+    right: 10px;
 }
 
   #popup{
@@ -56,4 +68,18 @@ input {
 
   #popup:target{
     display: block;
+  }
+
+  table,
+  td {
+      border: 2px solid #C4D7B2;
+      border-radius: 5px;
+      padding: 15px;
+      color: #A0C49D;
+  }
+
+  thead,
+  tfoot {
+      background-color: #C4D7B2;
+      color: #A0C49D;
   }
