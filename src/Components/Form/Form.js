@@ -16,7 +16,7 @@ export default function Form() {
     const [newClassCaracterInput, setNewClassCaracterInput] = useState("")
     const [newAgeCaracterInput, setNewAgeCaracterInput] = useState("")
 
-    
+
     const [toggleState, setToggleState] = useState(false)
 
     const toggleButton = () => {
@@ -68,11 +68,11 @@ export default function Form() {
     }
 
     return (
-        <>  
-            <a className="btn-add" href="#popup">Add a caracter</a>        
+        <>
+            <a className="btn-add" href="#popup">Add a caracter</a>
             <div id="popup">
                 <div className="popup-content">
-                    <h2>Création de personnage</h2>                   
+                    <h2>Création de personnage</h2>
                     <form onSubmit={e => addNewCaracter(e)}>
                         <label>
                             Pseuso :
@@ -87,34 +87,41 @@ export default function Form() {
                             <input type="text" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />
                         </label>
                         <button className="btn btn-primary">Valider</button>
-                </form>
+                    </form>
                     <a href="#" className="close-popup">X</a>
-                </div>                  
+                </div>
             </div>
             {/* <ul className="box">
                 {createdCaracters.map((caracter, index) => {
                     return (<Caracter key={index} pseudo={caracter.pseudo} classe={caracter.classe} age={caracter.age} id={caracter.id} deleteCaracter={deleteCaracter} />)
                 })}
             </ul> */}
-            <table className="table-caracter">
-                <thead>
-                    <th className="th-caracter" scope='col'>Pseudo</th>
-                    <th className="th-caracter" scope='col'>Classe</th>
-                    <th className="th-caracter" scope='col'>Age</th>
-                </thead>
-                <tbody>                  
-                    {createdCaracters.map((caracter)=>{
-                        return (
-                        <tr>
-                            <td>{caracter.pseudo}</td>
-                            <td>{caracter.classe}</td>
-                            <td>{caracter.age}</td>
-                            <td><button className='btn-delete-table' onClick={() => (deleteCaracter(caracter.id))}> Del </button></td>
-                            <td><button className='btn-plus-table'> ... </button></td>
-                        </tr>                              
-                        )})}
-                </tbody>
-            </table>
+            {createdCaracters.length === 0 ? (
+                <p>Pas de personnage</p>
+            )
+                : (
+                    <table className="table-caracter">
+                        <thead>
+                            <th className="th-caracter" scope='col'>Pseudo</th>
+                            <th className="th-caracter" scope='col'>Classe</th>
+                            <th className="th-caracter" scope='col'>Age</th>
+                        </thead>
+                        <tbody>
+                            {createdCaracters.map((caracter) => {
+                                return (
+                                    <tr>
+                                        <td>{caracter.pseudo}</td>
+                                        <td>{caracter.classe}</td>
+                                        <td>{caracter.age}</td>
+                                        <td><button className='btn-delete-table' onClick={() => (deleteCaracter(caracter.id))}> Del </button></td>
+                                        <td><button className='btn-plus-table'> ... </button></td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                )
+            }
         </>
     )
 }
