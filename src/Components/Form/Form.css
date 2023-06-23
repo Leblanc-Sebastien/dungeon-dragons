@@ -13,10 +13,30 @@ h1 {
   border-radius:5px;
 }
 
+input {
+    margin: 10px;
+}
+/* css-table*/
+
+.table-caracter{
+  background-color: #E1ECC8;
+}
+
+table,
+td {
+    padding: 20px;
+    color: #A0C49D;
+    font-weight: 600; 
+}
+
+thead,
+tfoot {     
+    color: #A0C49D;
+}
+
 .btn-delete-table, .btn-plus-table{
   width: 60px;
   height: 40px;
-  margin-right: 10px;
   background-color: #E1ECC8;
   color: #A0C49D;
   font-size: 18px;
@@ -26,14 +46,7 @@ h1 {
   border-color: #E1ECC8;
 }
 
-input {
-    margin: 10px;
-}
-
-.center{
-    top:30%;
-    right: 10px;
-}
+/* css-popup*/
 
   #popup{
     position:fixed;
@@ -45,7 +58,6 @@ input {
     display: none;
   }
 
-
   #popup .popup-content{
     position: absolute;
     top:50%;
@@ -56,7 +68,6 @@ input {
     background: #eee;
   }
 
-  
   #popup a.close-popup{
     position: absolute;
     top: 20px;
@@ -70,16 +81,4 @@ input {
     display: block;
   }
 
-  table,
-  td {
-      border: 2px solid #C4D7B2;
-      border-radius: 5px;
-      padding: 15px;
-      color: #A0C49D;
-  }
 
-  thead,
-  tfoot {
-      background-color: #C4D7B2;
-      color: #A0C49D;
-  }

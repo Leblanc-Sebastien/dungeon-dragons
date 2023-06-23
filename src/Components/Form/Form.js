@@ -69,9 +69,7 @@ export default function Form() {
 
     return (
         <>  
-            <div className="center">
-                <a className="btn-add" href="#popup">Add a caracter</a>
-            </div> 
+            <a className="btn-add" href="#popup">Add a caracter</a>        
             <div id="popup">
                 <div className="popup-content">
                     <h2>Création de personnage</h2>                   
@@ -99,7 +97,7 @@ export default function Form() {
                 })}
             </ul> */}
             <table className="table-caracter">
-                <thead className="table-caracter">
+                <thead>
                     <th className="th-caracter" scope='col'>Pseudo</th>
                     <th className="th-caracter" scope='col'>Classe</th>
                     <th className="th-caracter" scope='col'>Age</th>
@@ -111,8 +109,8 @@ export default function Form() {
                             <td>{caracter.pseudo}</td>
                             <td>{caracter.classe}</td>
                             <td>{caracter.age}</td>
-                            <button className='btn-delete-table' onClick={() => (deleteCaracter(caracter.id))}> Del </button>
-                            <button className='btn-plus-table'> ... </button>
+                            <td><button className='btn-delete-table' onClick={() => (deleteCaracter(caracter.id))}> Del </button></td>
+                            <td><button className='btn-plus-table'> ... </button></td>
                         </tr>                              
                         )})}
                 </tbody>

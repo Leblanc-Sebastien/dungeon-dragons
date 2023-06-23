@@ -8,9 +8,9 @@ function App() {
       <header className="header">
         <h1>Dungeons & dragons</h1>
       </header>  
-      <section className="section-caracter-table">
+      <main className="main-caracter-table">
         <Form />
-      </section>               
+      </main>               
       <footer className="footer"></footer>         
     </div>
   );
