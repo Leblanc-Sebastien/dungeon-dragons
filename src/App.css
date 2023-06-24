@@ -11,6 +11,7 @@
   grid-row: span 1; 
   display:flex;
   justify-content:center;
+  flex-direction: column;
   background-color: #E1ECC8;
 }
 
@@ -27,6 +28,8 @@
 .main-caracter-table{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
 }

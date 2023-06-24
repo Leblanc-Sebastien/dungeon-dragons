@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import Caracter from "../Caracters/Caracter.js"
+import TableCharacters from '../TableCharacters/TableCharacters.js';
 import "./Form.css"
 
 export default function Form() {
@@ -15,13 +15,6 @@ export default function Form() {
     const [newPseudoCaracterInput, setNewPseudoCaracterInput] = useState("")
     const [newClassCaracterInput, setNewClassCaracterInput] = useState("")
     const [newAgeCaracterInput, setNewAgeCaracterInput] = useState("")
-
-
-    const [toggleState, setToggleState] = useState(false)
-
-    const toggleButton = () => {
-        setToggleState(!toggleState)
-    }
 
     const setPseudo = (e) => {
         setNewPseudoCaracterInput(e)
@@ -97,31 +90,12 @@ export default function Form() {
                 })}
             </ul> */}
             {createdCaracters.length === 0 ? (
-                <p>Pas de personnage</p>
-            )
-                : (
-                    <table className="table-caracter">
-                        <thead>
-                            <th className="th-caracter" scope='col'>Pseudo</th>
-                            <th className="th-caracter" scope='col'>Classe</th>
-                            <th className="th-caracter" scope='col'>Age</th>
-                        </thead>
-                        <tbody>
-                            {createdCaracters.map((caracter) => {
-                                return (
-                                    <tr>
-                                        <td>{caracter.pseudo}</td>
-                                        <td>{caracter.classe}</td>
-                                        <td>{caracter.age}</td>
-                                        <td><button className='btn-delete-table' onClick={() => (deleteCaracter(caracter.id))}> Del </button></td>
-                                        <td><button className='btn-plus-table'> ... </button></td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                )
-            }
+                <section className="no-character">
+                    <p>Pas de personnage</p>
+                </section>             
+            ) : (
+                <TableCharacters charactersList={createdCaracters} deleteCaracter={deleteCaracter} />
+            )}
         </>
     )
 }
