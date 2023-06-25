@@ -1,0 +1,30 @@
+.table-caracter {
+    background-color: #E1ECC8;
+    border: 2px solid #A0C49D;
+    border-radius: 5px;
+}
+
+table,
+td {
+    padding: 20px;
+    color: #A0C49D;
+    font-weight: 600;
+}
+
+thead,
+tfoot {
+    color: #A0C49D;
+}
+
+.btn-delete-table,
+.btn-plus-table {
+    width: 60px;
+    height: 40px;
+    background-color: #E1ECC8;
+    color: #A0C49D;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    border-color: #E1ECC8;
+}
