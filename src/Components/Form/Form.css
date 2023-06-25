@@ -9,8 +9,8 @@
   border-radius: 5px;
 }
 
-.btn-add:hover{
-  background-color:  #A0C49D;
+.btn-add:hover {
+  background-color: #A0C49D;
   color: #E1ECC8;
 }
 
@@ -20,7 +20,7 @@ input {
 
 /* no character section*/
 
-.no-character{
+.no-character {
   display: flex;
   justify-content: center;
   background-color: #E1ECC8;
@@ -47,23 +47,66 @@ input {
 
 #popup .popup-content {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px;
+  width: auto;
+  height: auto;
   padding: 10px 20px;
-  background: #eee;
+  background: #E1ECC8;
+  color: #A0C49D;
+  border-radius: 5px;
 }
 
 #popup a.close-popup {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 20px;
+  bottom: 25px;
+  left: 25px;
+  font-size: 30px;
   font-weight: 600;
   text-decoration: none;
+  color: #A0C49D;
 }
 
 #popup:target {
   display: block;
+}
+
+.btn-validate {
+  background-color: #E1ECC8;
+  color: #A0C49D;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  border-color: #E1ECC8;
+}
+
+.btn-validate:hover {
+  background-color: #A0C49D;
+  color: #E1ECC8;
+  cursor: pointer;
+}
+
+.form-create-character {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.input-create-character {
+  background-color: #E1ECC8;
+  border-color: #E1ECC8;
+}
+
+.label-create-character{
+  color: #A0C49D;
+  font-weight: 600;
 }
