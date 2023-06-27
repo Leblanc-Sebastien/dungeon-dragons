@@ -62,24 +62,24 @@ export default function Form() {
 
     return (
         <>
-            <a className="btn-add" href="#popup">Add a caracter</a>
+            <a className="btn-add" href="#popup">Add a character</a>
             <div id="popup">
                 <div className="popup-content">
                     <h2>Création de personnage</h2>
-                    <form onSubmit={e => addNewCaracter(e)}>
-                        <label>
-                            Pseuso :
-                            <input type="text" name="pseudo" value={newPseudoCaracterInput} onInput={e => setPseudo(e.target.value)} />
+                    <form className="form-create-character" onSubmit={e => addNewCaracter(e)}>
+                        <label className="label-create-character">
+                            Pseudo :
+                            <input className="input-create-character" type="text" name="pseudo" value={newPseudoCaracterInput} onInput={e => setPseudo(e.target.value)} />
                         </label>
-                        <label>
+                        <label className="label-create-character">
                             classe :
-                            <input type="text" name="classe" value={newClassCaracterInput} onInput={e => setClass(e.target.value)} />
+                            <input className="input-create-character" type="text" name="classe" value={newClassCaracterInput} onInput={e => setClass(e.target.value)} />
                         </label>
-                        <label>
+                        <label className="label-create-character">
                             age :
-                            <input type="text" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />
+                            <input className="input-create-character" type="text" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />
                         </label>
-                        <button className="btn btn-primary">Valider</button>
+                        <button className="btn-validate">Valider</button>
                     </form>
                     <a href="#" className="close-popup">X</a>
                 </div>
