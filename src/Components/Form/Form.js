@@ -5,10 +5,6 @@ import "./Form.css"
 
 export default function Form() {
 
-    // const [createdCaracters, setCreatedCaraters] = useState([
-    //     { id: uuidv4(), pseudo: "SuGii", classe: "Guerrier", age: "36" }
-    // ])
-
     const [createdCaracters, setCreatedCaraters] = useState([
         {
             id: uuidv4(),
@@ -24,39 +20,64 @@ export default function Form() {
         }
     ])
     
-    const [newPseudoCaracterInput, setNewPseudoCaracterInput] = useState("")
-    const [newClassCaracterInput, setNewClassCaracterInput] = useState("")
-    const [newAgeCaracterInput, setNewAgeCaracterInput] = useState("")
+    const [newNameCharacterInput, setNewNameCharacterInput] = useState("")
+    const [newRaceCharacterInput, setNewRaceCharacterInput] = useState("")
+    const [newClassCharacterInput, setNewClassCharacterInput] = useState("")
+    const [newCareerCharacterInput, setNewCareerCharacterInput] = useState("")
+    const [newAgeCharacterInput, setNewAgeCharacterInput] = useState("")
+    const [newheightCharacterInput, setNewHeightCharacterInput] = useState("")
+    const [newHairColorCharacterInput, setNewHairColorCharacterInput] = useState("")
+    const [newEyesColorCharacterInput, setNewEyesColorCharacterInput] = useState("")
 
-    const setPseudo = (e) => {
-        setNewPseudoCaracterInput(e)
+    const setName = (e) => {
+        setNewNameCharacterInput(e)
+    }
+
+    const setRace = (e) => {
+        setNewRaceCharacterInput(e)
     }
 
     const setClass = (e) => {
-        setNewClassCaracterInput(e)
+        setNewClassCharacterInput(e)
     }
+     const setCareer = (e) => {
+        setNewCareerCharacterInput(e)
+     }
 
     const setAge = (e) => {
-        setNewAgeCaracterInput(e)
+        setNewAgeCharacterInput(e)
+    }
+
+    const setHeight = (e) => {
+        setNewHeightCharacterInput(e)
+    }
+
+    const setHairColor = (e) => {
+        setNewHairColorCharacterInput(e)
+    }
+
+    const setEyesColor = (e) => {
+        setNewEyesColorCharacterInput(e)
     }
 
     /** submit button create new caracter**/
     const addNewCaracter = (e) => {
         e.preventDefault()
-        if (newPseudoCaracterInput !== "" && newClassCaracterInput !== "" && newAgeCaracterInput !== "") {
+        if (newNameCharacterInput !== "" && newClassCharacterInput !== "" && newAgeCharacterInput !== "") {
 
             const toDay = new Date()
+
             const NewCaracter = {
                 id: uuidv4(),
                 date: toDay.getDate() +"/"+ (toDay.getMonth() + 1) +"/"+ toDay.getFullYear(),
-                nom: newPseudoCaracterInput,
-                race: "??",
-                classe: newClassCaracterInput,
-                carriere: "Tueur de troll",
-                age: newAgeCaracterInput, 
-                taille: "113",
-                cheveux: "Chatain",
-                yeux: "bleu"
+                nom: newNameCharacterInput,
+                race: newRaceCharacterInput,
+                classe: newClassCharacterInput,
+                carriere: newCareerCharacterInput,
+                age: newAgeCharacterInput, 
+                taille: newheightCharacterInput,
+                cheveux: newHairColorCharacterInput,
+                yeux: newEyesColorCharacterInput
             }
 
             const newArrCaracter = [...createdCaracters]
@@ -64,9 +85,17 @@ export default function Form() {
 
             setCreatedCaraters(newArrCaracter)
 
-            setNewPseudoCaracterInput("")
-            setNewClassCaracterInput("")
-            setNewAgeCaracterInput("")
+            console.log(createdCaracters)
+
+            setNewNameCharacterInput("")
+            setNewRaceCharacterInput("")
+            setNewClassCharacterInput("")
+            setNewCareerCharacterInput("")
+            setNewAgeCharacterInput("")
+            setNewHeightCharacterInput("")
+            setNewHairColorCharacterInput("")
+            setNewEyesColorCharacterInput("")
+            
         }
     }
     /** delete caracter */
@@ -88,9 +117,9 @@ export default function Form() {
                     <h2>Création de personnage</h2>
                     <form className="form-create-character" onSubmit={e => addNewCaracter(e)}>
                         <label className="label-create-character">Nom :</label>                           
-                        <input className="input-create-character" type="text" name="pseudo" value={newPseudoCaracterInput} onInput={e => setPseudo(e.target.value)} />                        
+                        <input className="input-create-character" type="text" name="pseudo" value={newNameCharacterInput} onInput={e => setName(e.target.value)} />                        
                         <label className="label-create-character">Race :</label>                           
-                        <select name="race" id="race-select">
+                        <select name="race" id="race-select" onChange={e => setRace(e)}>
                             <option value="">Choisis une race</option>
                             <option value="humain">Humain</option>
                             <option value="nain">Nain</option>
@@ -98,7 +127,7 @@ export default function Form() {
                             <option value="halfeling">Halfeling</option>
                         </select> 
                         <label className="label-create-character">Classe :</label>  
-                        <select name="classe" id="classe-select">
+                        <select name="classe" id="classe-select" onChange={e => setClass(e)}>
                             <option value="">Choisis une classe</option>
                             <option value="guerrier">Guerrier</option>
                             <option value="mage">Mage</option>
@@ -106,22 +135,23 @@ export default function Form() {
                             <option value="druide">Druide</option>
                         </select> 
                         <label className="label-create-character">Carrière :</label> 
-                        <input className="input-create-character" type="text" name="carriere"/>                                                               
+                        <input className="input-create-character" type="text" name="carriere" value={newCareerCharacterInput} onInput={e => setCareer(e.target.value)}/>                                                               
                         <label className="label-create-character">age :</label>  
-                        <input className="input-create-character" type="number" name="age" value={newAgeCaracterInput} onInput={e => setAge(e.target.value)} />  
+                        <input className="input-create-character" type="text" name="age" value={newAgeCharacterInput} onInput={e => setAge(e.target.value)} />  
                         <label className="label-create-character">Taille :</label>     
-                        <input className="input-create-character" type="number" />   
+                        <input className="input-create-character" type="text" name="taille" value={newheightCharacterInput} onInput={e => setHeight(e.target.value)} />   
                         <label className="label-create-character">Cheveux :</label>  
-                        <select name="cheveux" id="cheveux-select">
+                        <select name="cheveux" id="cheveux-select" onChange={e => setHairColor(e)}>
                             <option value="">Choisis une couleur</option>
                             <option value="blond">Blond</option>
                             <option value="brun">Brun</option>
                             <option value="chatain">Chatain</option>
                             <option value="roux">Roux</option>
+                            <option value="chauve+">Chauve</option>
                             <option value="lgbtq+">LGBTQ+</option>
                         </select> 
                         <label className="input-create-character">Yeux</label>
-                        <select name="yeux" id="yeux-select">
+                        <select name="yeux" id="yeux-select" onChange={e => setEyesColor(e)}>
                             <option value="">Choisis une couleur</option>
                             <option value="marron">Marron</option>
                             <option value="bleu">Bleu</option>
