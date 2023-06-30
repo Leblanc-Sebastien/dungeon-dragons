@@ -8,18 +8,18 @@ export default function Form() {
     const [createdCaracters, setCreatedCaraters] = useState([
         {
             id: uuidv4(),
-            date: "16/09/1987", 
-            nom: "SuGii", 
+            date: "16/09/1987",
+            nom: "SuGii",
             race: "Nain",
-            classe: "Guerrier", 
+            classe: "Guerrier",
             carriere: "Tueur de troll",
-            age: "36", 
+            age: "36",
             taille: "113",
             cheveux: "Chatain",
             yeux: "bleu"
         }
     ])
-    
+
     const [newNameCharacterInput, setNewNameCharacterInput] = useState("")
     const [newRaceCharacterInput, setNewRaceCharacterInput] = useState("")
     const [newClassCharacterInput, setNewClassCharacterInput] = useState("")
@@ -40,9 +40,9 @@ export default function Form() {
     const setClass = (e) => {
         setNewClassCharacterInput(e)
     }
-     const setCareer = (e) => {
+    const setCareer = (e) => {
         setNewCareerCharacterInput(e)
-     }
+    }
 
     const setAge = (e) => {
         setNewAgeCharacterInput(e)
@@ -69,12 +69,12 @@ export default function Form() {
 
             const NewCaracter = {
                 id: uuidv4(),
-                date: toDay.getDate() +"/"+ (toDay.getMonth() + 1) +"/"+ toDay.getFullYear(),
+                date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
                 nom: newNameCharacterInput,
                 race: newRaceCharacterInput,
                 classe: newClassCharacterInput,
                 carriere: newCareerCharacterInput,
-                age: newAgeCharacterInput, 
+                age: newAgeCharacterInput,
                 taille: newheightCharacterInput,
                 cheveux: newHairColorCharacterInput,
                 yeux: newEyesColorCharacterInput
@@ -95,7 +95,7 @@ export default function Form() {
             setNewHeightCharacterInput("")
             setNewHairColorCharacterInput("")
             setNewEyesColorCharacterInput("")
-            
+
         }
     }
     /** delete caracter */
@@ -116,31 +116,31 @@ export default function Form() {
                 <div className="popup-content">
                     <h2>Création de personnage</h2>
                     <form className="form-create-character" onSubmit={e => addNewCaracter(e)}>
-                        <label className="label-create-character">Nom :</label>                           
-                        <input className="input-create-character" type="text" name="pseudo" value={newNameCharacterInput} onInput={e => setName(e.target.value)} />                        
-                        <label className="label-create-character">Race :</label>                           
-                        <select name="race" id="race-select" onChange={e => setRace(e)}>
+                        <label className="label-create-character">Nom :</label>
+                        <input className="input-create-character" type="text" name="pseudo" value={newNameCharacterInput} onInput={e => setName(e.target.value)} />
+                        <label className="label-create-character">Race :</label>
+                        <select name="race" id="race-select" onChange={e => setRace(e.target.value)}>
                             <option value="">Choisis une race</option>
                             <option value="humain">Humain</option>
                             <option value="nain">Nain</option>
                             <option value="elfe">Elfe</option>
                             <option value="halfeling">Halfeling</option>
-                        </select> 
-                        <label className="label-create-character">Classe :</label>  
-                        <select name="classe" id="classe-select" onChange={e => setClass(e)}>
+                        </select>
+                        <label className="label-create-character">Classe :</label>
+                        <select name="classe" id="classe-select" onChange={e => setClass(e.target.value)}>
                             <option value="">Choisis une classe</option>
                             <option value="guerrier">Guerrier</option>
                             <option value="mage">Mage</option>
                             <option value="voleur">Voleur</option>
                             <option value="druide">Druide</option>
-                        </select> 
-                        <label className="label-create-character">Carrière :</label> 
-                        <input className="input-create-character" type="text" name="carriere" value={newCareerCharacterInput} onInput={e => setCareer(e.target.value)}/>                                                               
-                        <label className="label-create-character">age :</label>  
-                        <input className="input-create-character" type="text" name="age" value={newAgeCharacterInput} onInput={e => setAge(e.target.value)} />  
-                        <label className="label-create-character">Taille :</label>     
-                        <input className="input-create-character" type="text" name="taille" value={newheightCharacterInput} onInput={e => setHeight(e.target.value)} />   
-                        <label className="label-create-character">Cheveux :</label>  
+                        </select>
+                        <label className="label-create-character">Carrière :</label>
+                        <input className="input-create-character" type="text" name="carriere" value={newCareerCharacterInput} onInput={e => setCareer(e.target.value)} />
+                        <label className="label-create-character">age :</label>
+                        <input className="input-create-character" type="text" name="age" value={newAgeCharacterInput} onInput={e => setAge(e.target.value)} />
+                        <label className="label-create-character">Taille :</label>
+                        <input className="input-create-character" type="text" name="taille" value={newheightCharacterInput} onInput={e => setHeight(e.target.value)} />
+                        <label className="label-create-character">Cheveux :</label>
                         <select name="cheveux" id="cheveux-select" onChange={e => setHairColor(e)}>
                             <option value="">Choisis une couleur</option>
                             <option value="blond">Blond</option>
@@ -149,16 +149,16 @@ export default function Form() {
                             <option value="roux">Roux</option>
                             <option value="chauve+">Chauve</option>
                             <option value="lgbtq+">LGBTQ+</option>
-                        </select> 
+                        </select>
                         <label className="input-create-character">Yeux</label>
-                        <select name="yeux" id="yeux-select" onChange={e => setEyesColor(e)}>
+                        <select name="yeux" id="yeux-select" onChange={e => setEyesColor(e.target.value)}>
                             <option value="">Choisis une couleur</option>
                             <option value="marron">Marron</option>
                             <option value="bleu">Bleu</option>
                             <option value="vert">Vert</option>
                             <option value="rouge">Rouge</option>
                             <option value="lgbtq+">LGBTQ+</option>
-                        </select>                                                     
+                        </select>
                         <button className="btn-validate">Valider</button>
                     </form>
                     <a href="#" className="close-popup">X</a>
@@ -172,7 +172,7 @@ export default function Form() {
             {createdCaracters.length === 0 ? (
                 <section className="no-character">
                     <p>Pas de personnage</p>
-                </section>             
+                </section>
             ) : (
                 <TableCharacters charactersList={createdCaracters} deleteCaracter={deleteCaracter} />
             )}

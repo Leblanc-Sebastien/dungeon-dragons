@@ -15,22 +15,22 @@ export default function TableCharacters(props) {
                     <th className="th-caracter" scope='col'>Taille</th>
                     <th className="th-caracter" scope='col'>Cheveux</th>
                     <th className="th-caracter" scope='col'>Yeux</th>
-                </tr>              
+                </tr>
             </thead>
             <tbody>
-                {props.charactersList.map((caracter) => {
+                {props.charactersList.map((character) => {
                     return (
-                        <tr key={caracter.id}> 
-                            <td>{caracter.date}</td>   
-                            <td>{caracter.nom}</td>
-                            <td>{caracter.race}</td>
-                            <td>{caracter.classe}</td>
-                            <td>{caracter.carriere}</td>
-                            <td>{caracter.age} ans</td>
-                            <td>{caracter.taille} cm</td>
-                            <td>{caracter.cheveux}</td>
-                            <td>{caracter.yeux}</td>
-                            <td><button className='btn-delete-table' onClick={() => (props.deleteCaracter(caracter.id))}> Del </button></td>
+                        <tr key={character.id}>
+                            <td>{character.date}</td>
+                            <td>{character.nom}</td>
+                            <td>{character.race}</td>
+                            <td>{character.classe}</td>
+                            <td>{character.carriere}</td>
+                            <td>{character.age} ans</td>
+                            <td>{character.taille} cm</td>
+                            <td>{character.cheveux}</td>
+                            <td>{character.yeux}</td>
+                            <td><button className='btn-delete-table' onClick={() => (props.deleteCaracter(character.id))}> Del </button></td>
                             <td><button className='btn-plus-table'> ... </button></td>
                         </tr>
                     )
