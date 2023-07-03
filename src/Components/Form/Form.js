@@ -67,7 +67,7 @@ export default function Form() {
 
             const toDay = new Date()
 
-            const NewCaracter = {
+            const newCaracter = {
                 id: uuidv4(),
                 date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
                 nom: newNameCharacterInput,
@@ -81,7 +81,7 @@ export default function Form() {
             }
 
             const newArrCaracter = [...createdCaracters]
-            newArrCaracter.push(NewCaracter)
+            newArrCaracter.push(newCaracter)
 
             setCreatedCaraters(newArrCaracter)
 
