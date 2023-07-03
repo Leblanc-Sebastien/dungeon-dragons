@@ -44,6 +44,16 @@ export default function Form(props) {
         setNewEyesColorCharacterInput(e)
     }
 
+    /** **/
+
+    const resetForm = () => {
+        setNewNameCharacterInput("")
+        setNewCareerCharacterInput("")
+        setNewAgeCharacterInput("")
+        setNewHeightCharacterInput("")
+        document.getElementById("form-create-character").reset();
+    }
+
     /** submit button create new caracter**/
     const addNewCaracter = (e) => {
         e.preventDefault()
@@ -69,11 +79,7 @@ export default function Form(props) {
 
             props.setCreatedCaraters(newArrCaracter)
 
-            setNewNameCharacterInput("")
-            setNewCareerCharacterInput("")
-            setNewAgeCharacterInput("")
-            setNewHeightCharacterInput("")
-            document.getElementById("form-create-character").reset();
+            resetForm()          
         }
     }
     
