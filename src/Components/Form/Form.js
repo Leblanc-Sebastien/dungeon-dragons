@@ -85,17 +85,11 @@ export default function Form() {
 
             setCreatedCaraters(newArrCaracter)
 
-            console.log(createdCaracters)
-
             setNewNameCharacterInput("")
-            setNewRaceCharacterInput("")
-            setNewClassCharacterInput("")
             setNewCareerCharacterInput("")
             setNewAgeCharacterInput("")
             setNewHeightCharacterInput("")
-            setNewHairColorCharacterInput("")
-            setNewEyesColorCharacterInput("")
-
+            document.getElementById("form-create-character").reset();
         }
     }
     /** delete caracter */
@@ -115,7 +109,7 @@ export default function Form() {
             <div id="popup">
                 <div className="popup-content">
                     <h2>Création de personnage</h2>
-                    <form className="form-create-character" onSubmit={e => addNewCaracter(e)}>
+                    <form className="form-create-character" id="form-create-character" onSubmit={e => addNewCaracter(e)}>
                         <label className="label-create-character">Nom :</label>
                         <input className="input-create-character" type="text" name="pseudo" value={newNameCharacterInput} onInput={e => setName(e.target.value)} />
                         <label className="label-create-character">Race :</label>
@@ -141,7 +135,7 @@ export default function Form() {
                         <label className="label-create-character">Taille :</label>
                         <input className="input-create-character" type="text" name="taille" value={newheightCharacterInput} onInput={e => setHeight(e.target.value)} />
                         <label className="label-create-character">Cheveux :</label>
-                        <select name="cheveux" id="cheveux-select" onChange={e => setHairColor(e)}>
+                        <select name="cheveux" id="cheveux-select" onChange={e => setHairColor(e.target.value)}>
                             <option value="">Choisis une couleur</option>
                             <option value="blond">Blond</option>
                             <option value="brun">Brun</option>
@@ -159,6 +153,7 @@ export default function Form() {
                             <option value="rouge">Rouge</option>
                             <option value="lgbtq+">LGBTQ+</option>
                         </select>
+                        <input type="reset" />
                         <button className="btn-validate">Valider</button>
                     </form>
                     <a href="#" className="close-popup">X</a>
