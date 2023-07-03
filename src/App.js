@@ -45,7 +45,7 @@ const deleteCharacter = (id) => {
                     <p>Pas de personnage</p>
                 </section>
             ) : (
-                <TableCharacters charactersList={createdCharacters} OnDeleteCharacter={deleteCharacter} />
+                <TableCharacters charactersList={createdCharacters} onDeleteCharacter={deleteCharacter} />
             )}
       </main>               
       <footer className="footer"></footer>         

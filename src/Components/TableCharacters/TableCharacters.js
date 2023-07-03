@@ -30,7 +30,7 @@ export default function TableCharacters(props) {
                             <td>{character.taille} cm</td>
                             <td>{character.cheveux}</td>
                             <td>{character.yeux}</td>
-                            <td><button className='btn-delete-table' onClick={() => (props.OnDeleteCharacter(character.id))}> Del </button></td>
+                            <td><button className='btn-delete-table' onClick={() => (props.onDeleteCharacter(character.id))}> Del </button></td>
                             <td><button className='btn-plus-table'> ... </button></td>
                         </tr>
                     )
