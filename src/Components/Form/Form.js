@@ -1,24 +1,8 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import TableCharacters from '../TableCharacters/TableCharacters.js';
 import "./Form.css"
 
-export default function Form() {
-
-    const [createdCaracters, setCreatedCaraters] = useState([
-        {
-            id: uuidv4(),
-            date: "16/09/1987",
-            nom: "SuGii",
-            race: "Nain",
-            classe: "Guerrier",
-            carriere: "Tueur de troll",
-            age: "36",
-            taille: "113",
-            cheveux: "Chatain",
-            yeux: "bleu"
-        }
-    ])
+export default function Form(props) {
 
     const [newNameCharacterInput, setNewNameCharacterInput] = useState("")
     const [newRaceCharacterInput, setNewRaceCharacterInput] = useState("")
@@ -80,10 +64,10 @@ export default function Form() {
                 yeux: newEyesColorCharacterInput
             }
 
-            const newArrCaracter = [...createdCaracters]
+            const newArrCaracter = [...props.createdCaracters]
             newArrCaracter.push(newCaracter)
 
-            setCreatedCaraters(newArrCaracter)
+            props.setCreatedCaraters(newArrCaracter)
 
             setNewNameCharacterInput("")
             setNewCareerCharacterInput("")
@@ -92,17 +76,7 @@ export default function Form() {
             document.getElementById("form-create-character").reset();
         }
     }
-    /** delete caracter */
-
-    const deleteCaracter = (id) => {
-        const caracterById = createdCaracters.findIndex(caracter => caracter.id === id)
-
-        const newArrCaracter = [...createdCaracters]
-        newArrCaracter.splice(caracterById, 1)
-
-        setCreatedCaraters(newArrCaracter)
-    }
-
+    
     return (
         <>
             <a className="btn-add" href="#popup">Add a character</a>
@@ -159,18 +133,6 @@ export default function Form() {
                     <a href="#" className="close-popup">X</a>
                 </div>
             </div>
-            {/* <ul className="box">
-                {createdCaracters.map((caracter, index) => {
-                    return (<Caracter key={index} pseudo={caracter.pseudo} classe={caracter.classe} age={caracter.age} id={caracter.id} deleteCaracter={deleteCaracter} />)
-                })}
-            </ul> */}
-            {createdCaracters.length === 0 ? (
-                <section className="no-character">
-                    <p>Pas de personnage</p>
-                </section>
-            ) : (
-                <TableCharacters charactersList={createdCaracters} deleteCaracter={deleteCaracter} />
-            )}
         </>
     )
 }
