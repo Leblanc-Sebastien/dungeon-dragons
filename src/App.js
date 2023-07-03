@@ -6,7 +6,7 @@ import "./App.css"
 
 export default function App() {
 
-  const [createdCaracters, setCreatedCaraters] = useState([
+  const [createdCharacters, setCreatedCharaters] = useState([
     {
         id: uuidv4(),
         date: "16/09/1987",
@@ -17,19 +17,19 @@ export default function App() {
         age: "36",
         taille: "113",
         cheveux: "Chatain",
-        yeux: "bleu"
+        yeux: "bleu" 
     }
 ])
 
-/** delete caracter */
+/** delete character */
 
-const deleteCaracter = (id) => {
-  const caracterById = createdCaracters.findIndex(caracter => caracter.id === id)
+const deleteCharacter = (id) => {
+  const characterById = createdCharacters.findIndex(character => character.id === id)
 
-  const newArrCaracter = [...createdCaracters]
-  newArrCaracter.splice(caracterById, 1)
+  const newArrCharacter = [...createdCharacters]
+  newArrCharacter.splice(characterById, 1)
 
-  setCreatedCaraters(newArrCaracter)
+  setCreatedCharaters(newArrCharacter)
 }
 
   return (
@@ -37,15 +37,15 @@ const deleteCaracter = (id) => {
       <header className="header">
         <h1>Dungeons & dragons</h1>
       </header>  
-      <main className="main-caracter-table">
-        <Form createdCaracters={createdCaracters} setCreatedCaraters={setCreatedCaraters}/>
+      <main className="main-character-table">
+        <Form createdCharacters={createdCharacters} setCreatedCharaters={setCreatedCharaters}/>
 
-        {createdCaracters.length === 0 ? (
+        {createdCharacters.length === 0 ? (
                 <section className="no-character">
                     <p>Pas de personnage</p>
                 </section>
             ) : (
-                <TableCharacters charactersList={createdCaracters} deleteCaracter={deleteCaracter} />
+                <TableCharacters charactersList={createdCharacters} OnDeleteCharacter={deleteCharacter} />
             )}
       </main>               
       <footer className="footer"></footer>         

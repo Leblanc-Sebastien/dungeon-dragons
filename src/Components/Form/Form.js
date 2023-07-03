@@ -54,14 +54,14 @@ export default function Form(props) {
         document.getElementById("form-create-character").reset();
     }
 
-    /** submit button create new caracter**/
-    const addNewCaracter = (e) => {
+    /** submit button create new character**/
+    const addNewCharacter = (e) => {
         e.preventDefault()
         if (newNameCharacterInput !== "" && newClassCharacterInput !== "" && newAgeCharacterInput !== "") {
 
             const toDay = new Date()
 
-            const newCaracter = {
+            const newCharacter = {
                 id: uuidv4(),
                 date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
                 nom: newNameCharacterInput,
@@ -74,10 +74,10 @@ export default function Form(props) {
                 yeux: newEyesColorCharacterInput
             }
 
-            const newArrCaracter = [...props.createdCaracters]
-            newArrCaracter.push(newCaracter)
+            const newArrCharacter = [...props.createdCharacters]
+            newArrCharacter.push(newCharacter)
 
-            props.setCreatedCaraters(newArrCaracter)
+            props.setCreatedCharaters(newArrCharacter)
 
             resetForm()          
         }
@@ -89,7 +89,7 @@ export default function Form(props) {
             <div id="popup">
                 <div className="popup-content">
                     <h2>Création de personnage</h2>
-                    <form className="form-create-character" id="form-create-character" onSubmit={e => addNewCaracter(e)}>
+                    <form className="form-create-character" id="form-create-character" onSubmit={e => addNewCharacter(e)}>
                         <label className="label-create-character">Nom :</label>
                         <input className="input-create-character" type="text" name="pseudo" value={newNameCharacterInput} onInput={e => setName(e.target.value)} />
                         <label className="label-create-character">Race :</label>
