@@ -3,20 +3,34 @@ import "./TableCharacters.css"
 export default function TableCharacters(props) {
 
     return (
-        <table className="table-caracter">
+        <table className="table-character">
             <thead>
-                <th className="th-caracter" scope='col'>Pseudo</th>
-                <th className="th-caracter" scope='col'>Classe</th>
-                <th className="th-caracter" scope='col'>Age</th>
+                <tr>
+                    <th className="th-character" scope='col'>Date</th>
+                    <th className="th-character" scope='col'>Nom</th>
+                    <th className="th-character" scope='col'>Race</th>
+                    <th className="th-character" scope='col'>Classe</th>
+                    <th className="th-character" scope='col'>Carriere</th>
+                    <th className="th-character" scope='col'>Age</th>
+                    <th className="th-character" scope='col'>Taille</th>
+                    <th className="th-character" scope='col'>Cheveux</th>
+                    <th className="th-character" scope='col'>Yeux</th>
+                </tr>
             </thead>
             <tbody>
-                {props.charactersList.map((caracter) => {
+                {props.charactersList.map((character) => {
                     return (
-                        <tr>
-                            <td>{caracter.pseudo}</td>
-                            <td>{caracter.classe}</td>
-                            <td>{caracter.age}</td>
-                            <td><button className='btn-delete-table' onClick={() => (props.deleteCaracter(caracter.id))}> Del </button></td>
+                        <tr key={character.id}>
+                            <td>{character.date}</td>
+                            <td>{character.nom}</td>
+                            <td>{character.race}</td>
+                            <td>{character.classe}</td>
+                            <td>{character.carriere}</td>
+                            <td>{character.age} ans</td>
+                            <td>{character.taille} cm</td>
+                            <td>{character.cheveux}</td>
+                            <td>{character.yeux}</td>
+                            <td><button className='btn-delete-table' onClick={() => (props.onDeleteCharacter(character.id))}> Del </button></td>
                             <td><button className='btn-plus-table'> ... </button></td>
                         </tr>
                     )
