@@ -48,7 +48,7 @@ const deleteCharacter = (id) => {
         <h1>Dungeons & dragons</h1>
       </header>  
       <main className="main-character-table">
-        <Form createdCharacters={createdCharacters} onAddCharacter={addCharacter}/>
+        <Form onAddCharacter={addCharacter}/>
 
         {createdCharacters.length === 0 ? (
                 <section className="no-character">
