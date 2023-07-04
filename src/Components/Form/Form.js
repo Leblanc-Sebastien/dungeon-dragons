@@ -74,10 +74,7 @@ export default function Form(props) {
                 yeux: newEyesColorCharacterInput
             }
 
-            const newArrCharacter = [...props.createdCharacters]
-            newArrCharacter.push(newCharacter)
-
-            props.setCreatedCharaters(newArrCharacter)
+            props.onAddCharacter(newCharacter)
 
             resetForm()          
         }
