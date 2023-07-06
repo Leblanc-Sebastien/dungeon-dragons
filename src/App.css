@@ -19,11 +19,6 @@
   color: #A0C49D;
   font-size: 120px;
 }
-@media screen and (max-width: 1300px) {
-  .header h1 {
-    font-size: 60px;
-  }
-}
 
 .main-character-table{
   display: flex;
