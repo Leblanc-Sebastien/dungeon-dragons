@@ -46,7 +46,6 @@ export default function App() {
   return (
     <div className="App flex">
       <header className="header">
-        {/* <h1>Dungeons & dragons</h1> */}
         <Navbar />
       </header>
       <main className="main-character-table">
