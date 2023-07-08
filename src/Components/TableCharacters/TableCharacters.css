@@ -4,6 +4,19 @@
     border-radius: 5px;
 }
 
+.no-character{
+    background-color: #E1ECC8;
+    border: 2px solid #A0C49D;
+    border-radius: 5px;
+    padding: 20px;
+    color: #A0C49D;
+    font-weight: 600;
+}
+
+.no-character p{
+    margin: 0px;
+}
+
 table,
 td {
     padding: 20px;
@@ -27,4 +40,13 @@ tfoot {
     text-decoration: none;
     border-radius: 5px;
     border-color: #E1ECC8;
+}
+
+.main-character-table {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
