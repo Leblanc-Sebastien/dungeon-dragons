@@ -1,30 +1,30 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
 import App from './App';
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import ErrorPage from './Components/ErrorPage/ErrorPage';
-import TableCharacters from './Components/TableCharacters/TableCharacters';
-import Form from './Components/Form/Form';
-import Contact from './Components/Contact/Contact'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
+import CharactersListView from './Components/View/CharactersListView/CharactersListView';
+import CreateCharacterView from './Components/View/CreateCharacterView/CreateCharacterView';
+import ErrorView from './Components/View/ErrorPageView/ErrorView';
+import ContactView from './Components/View/ContactView/ContactView';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <ErrorView />,
     children: [
       {
         path: "/liste-de-personnages",
-        element: <TableCharacters />
+        element: <CharactersListView />
       },
       {
         path: "/creation-de-personnage",
-        element: <Form />
+        element: <CreateCharacterView />
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <ContactView />
       }
     ]
   }

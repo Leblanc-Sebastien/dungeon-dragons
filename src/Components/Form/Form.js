@@ -83,7 +83,6 @@ export default function Form(props) {
     return (
         <div className='box-create-character'>
             {/* <a className="btn-add">Add a character</a> */}
-            <h2>Création de personnage</h2>
             <form className="form-create-character" id="form-create-character" onSubmit={e => addNewCharacter(e)}>
                 <label className="label-create-character">Nom :</label>
                 <input className="input-create-character" type="text" name="pseudo" value={newNameCharacterInput} onInput={e => setName(e.target.value)} />

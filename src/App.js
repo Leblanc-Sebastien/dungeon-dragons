@@ -1,6 +1,6 @@
 import Navbar from "./Components/Navbar/Navbar"
 import "./App.css"
-import { Outlet, link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function App() {
 
