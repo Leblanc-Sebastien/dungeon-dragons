@@ -1,0 +1,37 @@
+.navbar {
+    display:flex;
+    justify-content:space-evenly;
+    padding-left: 120px;
+    padding-right: 120px;
+    align-items: center;
+    
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar-link{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    
+}
+
+.navbar-link li{
+    list-style: none;
+    padding: 20px;
+    color: #A0C49D;
+}
+
+.navbar-link li a{
+    list-style: none;
+    padding: 20px;
+    color: #A0C49D;
+    font-weight: bold;
+}
+
+.img-double-sword{
+    height: 80px;
+    height: 80px;
+}
