@@ -1,10 +1,10 @@
-import {configureStore, createSlice} from "@reduxjs/toolkit"
+import { configureStore, createSlice } from "@reduxjs/toolkit"
 import { v4 as uuidv4 } from 'uuid'
 
 
 const characterSlice = createSlice({
     name: "character",
-    initialState:  [
+    initialState: [
         {
             id: uuidv4(),
             date: "16/09/1987",
@@ -31,33 +31,34 @@ const characterSlice = createSlice({
         }
     ],
     reducers: {
-       addCharacter: (state, action) => {
-        const toDay = new Date()
+        addCharacter: (state, action) => {
+            // const toDay = new Date()
 
-            const newCharacter = {
-                id: uuidv4(),
-                date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
-                nom: action.payload,
-                race: action.payload,
-                classe: action.payload,
-                carriere: action.payload,
-                age: action.payload,
-                taille: action.payload,
-                cheveux: action.payload,
-                yeux: action.payload
-            }
-            state.push(newCharacter)
+            // const newCharacter = {
+            //     id: uuidv4(),
+            //     date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
+            //     nom: action.payload,
+            //     race: action.payload,
+            //     classe: action.payload,
+            //     carriere: action.payload,
+            //     age: action.payload,
+            //     taille: action.payload,
+            //     cheveux: action.payload,
+            //     yeux: action.payload
+            // }
+            state.push(action.payload)
+            console.log(action)
+            return state
         },
-        deleteCharacter: (state , action) => {
-            state = state.filter( character => character.id !== action.payload)
-            console.log(state)
-        },
-        editCharacter: () => {} 
+        deleteCharacter: (state, action) => {
+            const characterById = state.findIndex(character => character.id === action.payload)
+            state.splice(characterById, 1)
+        }
     }
 })
 
 export const store = configureStore({
     reducer: {
-        character : characterSlice.reducer
+        character: characterSlice.reducer
     }
 })

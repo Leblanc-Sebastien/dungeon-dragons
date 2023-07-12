@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import "./Form.css"
+import { useDispatch , useSelector} from 'react-redux';
 
-export default function Form(props) {
+export default function Form() {
+
+    /**connexion with store **/
+    const characters = useSelector(state => state.character)
+    const dispatch = useDispatch()
 
     const [newNameCharacterInput, setNewNameCharacterInput] = useState("")
     const [newRaceCharacterInput, setNewRaceCharacterInput] = useState("")
@@ -44,8 +49,9 @@ export default function Form(props) {
         setNewEyesColorCharacterInput(e)
     }
 
-    /** **/
+    console.log(characters)
 
+    /** reset Form **/
     const resetForm = () => {
         setNewNameCharacterInput("")
         setNewCareerCharacterInput("")
@@ -74,9 +80,15 @@ export default function Form(props) {
                 yeux: newEyesColorCharacterInput
             }
 
-            props.onAddCharacter(newCharacter)
+            dispatch({
+                type: "character/addCharacter",
+                action : newCharacter
+            })
 
             resetForm()
+            console.log(characters)
+
+            
         }
     }
 
