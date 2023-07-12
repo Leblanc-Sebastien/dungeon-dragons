@@ -32,25 +32,12 @@ const characterSlice = createSlice({
     ],
     reducers: {
         addCharacter: (state, action) => {
-            // const toDay = new Date()
-
-            // const newCharacter = {
-            //     id: uuidv4(),
-            //     date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
-            //     nom: action.payload,
-            //     race: action.payload,
-            //     classe: action.payload,
-            //     carriere: action.payload,
-            //     age: action.payload,
-            //     taille: action.payload,
-            //     cheveux: action.payload,
-            //     yeux: action.payload
-            // }
-            state.push(action.payload)
-            console.log(action)
-            return state
+          
+            state.push(action.payload)   
+            console.log(JSON.stringify(state))  
         },
         deleteCharacter: (state, action) => {
+
             const characterById = state.findIndex(character => character.id === action.payload)
             state.splice(characterById, 1)
         }

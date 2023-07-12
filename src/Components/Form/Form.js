@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import "./Form.css"
 import { useDispatch , useSelector} from 'react-redux';
+import { redirect } from "react-router-dom";
 
 export default function Form() {
 
@@ -49,8 +50,6 @@ export default function Form() {
         setNewEyesColorCharacterInput(e)
     }
 
-    console.log(characters)
-
     /** reset Form **/
     const resetForm = () => {
         setNewNameCharacterInput("")
@@ -82,13 +81,9 @@ export default function Form() {
 
             dispatch({
                 type: "character/addCharacter",
-                action : newCharacter
+                payload : newCharacter
             })
-
-            resetForm()
-            console.log(characters)
-
-            
+            resetForm()     
         }
     }
 
