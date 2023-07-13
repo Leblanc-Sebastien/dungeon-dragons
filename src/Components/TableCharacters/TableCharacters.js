@@ -1,49 +1,15 @@
-import { useState } from "react"
-import { v4 as uuidv4 } from 'uuid'
 import "./TableCharacters.css"
+import {useDispatch, useSelector} from "react-redux"
 
 export default function TableCharacters() {
+ 
+    const characters = useSelector(state => state.character)
 
-    const [createdCharacters, setCreatedCharaters] = useState([
-        {
-            id: uuidv4(),
-            date: "16/09/1987",
-            nom: "SuGii",
-            race: "Nain",
-            classe: "Guerrier",
-            carriere: "Tueur de troll",
-            age: "36",
-            taille: "113",
-            cheveux: "Chatain",
-            yeux: "bleu"
-        }
-    ])
-
-    /** add character **/
-
-    const addCharacter = (character) => {
-        const newArrCharacter = [...createdCharacters]
-
-        newArrCharacter.push(character)
-
-        setCreatedCharaters(newArrCharacter)
-    }
-
-    /** delete character */
-
-    const deleteCharacter = (id) => {
-        const characterById = createdCharacters.findIndex(character => character.id === id)
-
-        const newArrCharacter = [...createdCharacters]
-        newArrCharacter.splice(characterById, 1)
-
-        setCreatedCharaters(newArrCharacter)
-    }
+    const dispatch = useDispatch()
 
     return (
         <div className="main-character-table">
-            {/* <a className="btn-add">Add a character</a> */}
-            {createdCharacters.length === 0 ? (
+            {characters.length === 0 ? (
                 <section className="no-character">
                     <p>Pas de personnage</p>
                 </section>
@@ -63,7 +29,7 @@ export default function TableCharacters() {
                         </tr>
                     </thead>
                     <tbody>
-                        {createdCharacters.map((character) => {
+                        {characters.map((character) => {
                             return (
                                 <tr key={character.id}>
                                     <td>{character.date}</td>
@@ -75,8 +41,11 @@ export default function TableCharacters() {
                                     <td>{character.taille} cm</td>
                                     <td>{character.cheveux}</td>
                                     <td>{character.yeux}</td>
-                                    <td><button className='btn-delete-table' onClick={() => (deleteCharacter(character.id))}> Del </button></td>
-                                    <td><button className='btn-plus-table'> ... </button></td>
+                                    <td><button className='btn-delete-table' onClick={() => (dispatch({
+                                        type: "character/deleteCharacter",
+                                        action : character.id
+                                    }))}> Del </button></td>
+                                    {/* <td><button className='btn-plus-table'> ... </button></td> */}
                                 </tr>
                             )
                         })}
