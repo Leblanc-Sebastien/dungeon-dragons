@@ -1,3 +1,41 @@
-h2{
+.errorView-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px;
     color: #A0C49D;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.errorView-container p {
+    font-size: 60px;
+    margin: 0px;
+    padding: 0px;
+}
+
+@media screen and (max-width: 1205px) {
+    .errorView-container p {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.errorView-container a {
+    text-decoration: none;
+    font-size: 150px;
+    color: #E1ECC8;
+    font-weight: 600;
+}
+
+.errorView-container a:hover {
+    color: #A0C49D;
+    transition: 2s;
+}
+
+
+.img-double-sword-errorView {
+    height: 500px;
 }
