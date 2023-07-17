@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import "./Form.css"
 import { useDispatch , useSelector} from 'react-redux';
-import { redirect } from "react-router-dom";
 
 export default function Form() {
 

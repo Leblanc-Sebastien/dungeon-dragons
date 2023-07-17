@@ -13,6 +13,7 @@ export default function Navbar() {
                 <li><Link to={`liste-de-personnages`}>Liste de personnages</Link></li>
                 <li><Link to={`creation-de-personnage`}>Création de personnage</Link></li>
                 <li><Link to={`contact`}>Contact</Link></li>
+                <li><Link to={`HookForm`}>HookForm</Link></li>
             </ul>
         </nav>
     )
