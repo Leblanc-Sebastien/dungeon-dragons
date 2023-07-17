@@ -1,0 +1,31 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 25%;
+    padding-right: 25%;
+    justify-items: center;
+   
+}
+
+.wrapper input{
+    height: 30px;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+    
+}
+
+.wrapper select{
+    height: 30px;
+    width: 304px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wrapper button{
+    height: 30px;
+    width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
