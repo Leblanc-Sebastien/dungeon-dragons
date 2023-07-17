@@ -7,6 +7,7 @@ import CharactersListView from './Components/View/CharactersListView/CharactersL
 import CreateCharacterView from './Components/View/CreateCharacterView/CreateCharacterView';
 import ErrorView from './Components/View/ErrorPageView/ErrorView';
 import ContactView from './Components/View/ContactView/ContactView';
+import ReactHookForm from './Components/ReactHookForm/ReactHookForm'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactView />
+      },
+      {
+        path: "HookForm",
+        element: < ReactHookForm/>
       }
     ]
   }
