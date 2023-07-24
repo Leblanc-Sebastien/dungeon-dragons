@@ -2,10 +2,12 @@ import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import "./ReactHookForm.css"
+import { constructionCharacter as constructionCharacter } from "./dataWarHammer"
 
 export default function ReactHookForm() {
 
     const [raceState, setRaceState] = useState("")
+    const [classState, setClassState] = useState("")
 
     const [characters, setCharacters] = useState([
         {
@@ -28,65 +30,82 @@ export default function ReactHookForm() {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data) => {
-        
+
         const newArrCharacters = [...characters]
         const toDay = new Date()
         const newCharacter = {
             id: uuidv4(),
             date: toDay.getDate() + "/" + (toDay.getMonth() + 1) + "/" + toDay.getFullYear(),
-            name: data.name,       
+            name: data.name,
             race: data.race,
             class: data.class,
             career: data.career,
             echelon: data.echelon,
             careerPlan: data.careerPlan,
-            statut : data.statut,
+            statut: data.statut,
             age: data.age,
             height: data.height,
-            hair : data.hair,
+            hair: data.hair,
             eyes: data.eyes
         }
-
         newArrCharacters.push(newCharacter)
         setCharacters(newArrCharacters)
-        console.log(characters)
     }
 
-    const race = (e) => {
+    const raceOnInput = (e) => {
         setRaceState(e)
-        JSON.stringify(console.log(raceState))     
     }
 
-    return (   
+    const classOnInput = (e) => {
+        setClassState(e)
+    }
+
+    const filterByRaceAndClass = (race, classe) => {
+       
+    }
+
+    const arrClass = Object.keys(constructionCharacter)
+    const arrCitadin = constructionCharacter.citadin
+
+    return (
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
             <label>Nom</label>
-            <input defaultValue={"Michel"}{...register("name", { required: true, maxLength: 10, minLength: 2 })} />           
+            <input defaultValue={"Michel"}{...register("name", { required: true, maxLength: 10, minLength: 2 })} />
             <label>Race</label>
-            <select {...register("race", { required: true })} onChange={e => race(e.target.value)}>
+            <select {...register("race", { required: true })} onChange={e => raceOnInput(e.target.value)}>
                 {/* <option value="">Choisis une race</option> */}
                 <option value="humain">Humain</option>
-                <option value="nain">Nain</option>
-                <option value="elfe">Elfe</option>
                 <option value="halfeling">Halfeling</option>
+                <option value="nain">Nain</option>
+                <option value="Haut Elfe">Haut Elfe</option>
+                <option value="Elfe Sylvain">Elfe Sylvain</option>
             </select>
             <label>Classe</label>
-            <select {...register("class", { required: true })}>
-                {/* <option value="">Choisis une classe</option> */}
-                <option value="guerrier">Guerrier</option>
-                <option value="mage">Mage</option>
-                <option value="voleur">Voleur</option>
-                <option value="druide">Druide</option>
+            <select {...register("class", { required: true })} onChange={e => classOnInput(e.target.value)}>
+                {/*{<option value="">Choisis une classe</option>}*/}
+                {arrClass.map(classe => {
+                    return (
+                        <option value={classe}>{classe}</option>
+                    )
+                })}
             </select>
             <label>Carrière</label>
-            <input defaultValue={"Tueur de troll"}{...register("career", {required: true, maxLength:20, minLength: 2})} />
+            <input defaultValue={"Tueur de troll"}{...register("career", { required: true, maxLength: 20, minLength: 2 })} />
             <label>Echelon</label>
-            <input defaultValue={"6"}{...register("echelon", {required: true, maxLength:20, minLength: 1})} />
+            <select {...register("echelon", { required: true })}>
+                <option value="bronze">Bronze</option>
+                <option value="silver">Argent</option>
+                <option value="gold">Or</option>
+            </select>
             <label>Plan de carrière</label>
-            <input defaultValue={"Tueur de troll supérieur"}{...register("careerPlan", {required: true, minLength: 2})} />
+            <input defaultValue={"Tueur de troll supérieur"}{...register("careerPlan", { required: true, minLength: 2 })} />
             <label>Statut</label>
-            <select {...register("statut", {required: true})}>
-                <option value="alive">Vivant</option>
-                <option value="dead">Mort</option>
+            <select {...register("statut", { required: true })}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
             <label>Age</label>
             <input defaultValue={36} type="number" {...register("age", { required: true, maxLength: 4, minLength: 1 })} />
@@ -94,7 +113,7 @@ export default function ReactHookForm() {
             <input defaultValue={123} type="number" {...register("height", { required: true, maxLength: 3, minLength: 1 })} />
             <label>Cheveux</label>
             <select {...register("hair", { required: true })}>
-                {/* <option value="">Choisis une couleur de cheveux</option> */}
+                <option value="">Choisis une couleur de cheveux</option>
                 <option value="brun">Brun</option>
                 <option value="blond">Blond</option>
                 <option value="roux">Roux</option>
@@ -112,11 +131,11 @@ export default function ReactHookForm() {
                 <option value="lgbt+">LGBT+</option>
             </select>
             <button type="submit">Validage</button>
-            {raceState === "nain" ?(
+            {/* {raceState === "nain" ? (
                 <p>Je suis un NAIN</p>
             ) : (
                 <p>Je suis rien</p>
-            )}
-        </form>      
+            )} */}
+        </form>
     )
 }
