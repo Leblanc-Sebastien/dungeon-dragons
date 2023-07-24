@@ -8,6 +8,7 @@ export default function ReactHookForm() {
 
     const [raceState, setRaceState] = useState("")
     const [classState, setClassState] = useState("")
+    const [filteredCareer, setFilteredCareer] = useState([])
 
     const [characters, setCharacters] = useState([
         {
@@ -60,8 +61,12 @@ export default function ReactHookForm() {
         setClassState(e)
     }
 
-    const filterByRaceAndClass = (race, classe) => {
-       
+    const careerFiltered = (arrCreation, race, classe) =>{ 
+        setFilteredCareer(arrCreation[race][classe])
+    }
+
+    const refresh = (filteredCareer, raceState, classState) => {
+        
     }
 
     const arrClass = Object.keys(constructionCharacter)
@@ -90,7 +95,10 @@ export default function ReactHookForm() {
                 })}
             </select>
             <label>Carrière</label>
-            <input defaultValue={"Tueur de troll"}{...register("career", { required: true, maxLength: 20, minLength: 2 })} />
+            <select {...register("career", {required: true})}>
+                <option value="">Choisis une carrière</option>
+            </select>
+            <button onClick={refresh()}>refresh</button>
             <label>Echelon</label>
             <select {...register("echelon", { required: true })}>
                 <option value="bronze">Bronze</option>

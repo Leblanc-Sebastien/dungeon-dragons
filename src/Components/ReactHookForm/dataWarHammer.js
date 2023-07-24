@@ -1,24 +1,4 @@
 export const constructionCharacter = {
-    // citadin: {
-    //     agitateur: ["humain", "nain", "halfling"],
-    //     artisan: ["humain", "nain", "halfling", "haut elfe", "elfe sylvain"],
-    //     bourgeois: ["humain", "nain", "halfling", "haut elfe"],
-    //     enqueteur: ["humain", "nain", "halfling", "haut elfe"],
-    //     marchand: ["humain", "nain", "halfling", "haut elfe"],
-    //     mendiant: ["humain", "nain", "halfling"],
-    //     milicien: ["humain", "nain", "halfling", "haut elfe"],
-    //     ratier: ["humain", "nain", "halfling"]
-    // },
-    // courtisan: {
-    //     artiste: ["humain", "nain", "halfling", "haut elfe", "elfe sylvain"],
-    //     conseiller: ["humain", "nain", "halfling", "haut elfe"],
-    //     duelliste: ["humain", "nain", "haut elfe", "elfe sylvain"],
-    //     emissaire: ["humain", "nain", "halfling", "haut elfe", "elfe sylvain"],
-    //     espion: ["humain", "nain", "halfling", "haut elfe", "elfe sylvain"],
-    //     intendant: ["humain", "nain", "halfling", "haut elfe"],
-    //     noble: ["humain", "nain", "haut elfe", "elfe sylvain"],
-    //     serviteur: ["humain", "nain", "halfling"],
-    // },
     humain: {
         citadin: ["agitateur", "artisan", "bourgeois", "enqueteur", "marchand", "mendiant", "milicien", "ratier"],
         courtisan: ["artiste", "conseiller", "duelliste", "emissaire", "espion", "intendant", "noble", "serviteur"]
@@ -29,13 +9,15 @@ export const constructionCharacter = {
     }
 }
 
-for (const classe in constructionCharacter) {
-    if (classe === "humain") {
-        console.log(typeof classe)
-    }
-}
+//let careerFilteredByraceAndClass = []
 
 
+// export const careerFiltered = (arrCreation, race, classe) =>{ 
+//     let careerFilteredByraceAndClass = arrCreation[race][classe]
+//     return careerFilteredByraceAndClass
+// }
+
+// console.log(careerFiltered(constructionCharacter ,"elfeSylvain", "citadin"))
 
 class Race {
 
@@ -44,7 +26,7 @@ class Race {
     }
 }
 
-class Classe {
+class Classe extends Race{
 
     constructor(name, race) {
         this.name = name
@@ -52,12 +34,9 @@ class Classe {
     }
 }
 
-class Career {
+class Career extends Classe{
     constructor(name, classe) {
         this.name = name
         this.classe = classe
     }
 }
-
-
-
