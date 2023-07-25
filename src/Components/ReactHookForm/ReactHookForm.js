@@ -57,18 +57,24 @@ export default function ReactHookForm() {
 
     const raceOnInput = (e) => {
         setRaceState(e)
-        careerFiltered()
+        // careerFiltered()
     }
 
     const classOnInput = (e) => {
         setClassState(e)
-        careerFiltered()
+        // careerFiltered()
     }
+
+    useEffect( () => {
+        if(raceState !== "" && classState !== ""){
+            careerFiltered()
+            console.log(JSON.stringify(filteredCareer))   
+        }
+    }, [raceState, classState])
 
     const careerFiltered = () =>{ 
         if(raceState != "" && classState != ""){
-            setFilteredCareer(constructionCharacter[raceState][classState])
-            console.log(filteredCareer)
+            setFilteredCareer(constructionCharacter[raceState][classState])      
         }      
     }
 
