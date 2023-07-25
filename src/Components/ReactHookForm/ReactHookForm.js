@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useState } from "react"
+import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./ReactHookForm.css"
 import { constructionCharacter as constructionCharacter } from "./dataWarHammer"
@@ -51,26 +52,27 @@ export default function ReactHookForm() {
         }
         newArrCharacters.push(newCharacter)
         setCharacters(newArrCharacters)
+        console.log(characters)
     }
 
     const raceOnInput = (e) => {
         setRaceState(e)
+        careerFiltered()
     }
 
     const classOnInput = (e) => {
         setClassState(e)
+        careerFiltered()
     }
 
-    const careerFiltered = (arrCreation, race, classe) =>{ 
-        setFilteredCareer(arrCreation[race][classe])
+    const careerFiltered = () =>{ 
+        if(raceState != "" && classState != ""){
+            setFilteredCareer(constructionCharacter[raceState][classState])
+            console.log(filteredCareer)
+        }      
     }
 
-    const refresh = (filteredCareer, raceState, classState) => {
-        
-    }
-
-    const arrClass = Object.keys(constructionCharacter)
-    const arrCitadin = constructionCharacter.citadin
+    const arrClass = Object.keys(constructionCharacter.humain)
 
     return (
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
@@ -78,16 +80,16 @@ export default function ReactHookForm() {
             <input defaultValue={"Michel"}{...register("name", { required: true, maxLength: 10, minLength: 2 })} />
             <label>Race</label>
             <select {...register("race", { required: true })} onChange={e => raceOnInput(e.target.value)}>
-                {/* <option value="">Choisis une race</option> */}
+                <option value="">Choisis une race</option>
                 <option value="humain">Humain</option>
                 <option value="halfeling">Halfeling</option>
                 <option value="nain">Nain</option>
                 <option value="Haut Elfe">Haut Elfe</option>
-                <option value="Elfe Sylvain">Elfe Sylvain</option>
+                <option value="elfeSylvain">Elfe Sylvain</option>
             </select>
             <label>Classe</label>
             <select {...register("class", { required: true })} onChange={e => classOnInput(e.target.value)}>
-                {/*{<option value="">Choisis une classe</option>}*/}
+                {<option value="">Choisis une classe</option>}
                 {arrClass.map(classe => {
                     return (
                         <option value={classe}>{classe}</option>
@@ -96,9 +98,12 @@ export default function ReactHookForm() {
             </select>
             <label>Carrière</label>
             <select {...register("career", {required: true})}>
-                <option value="">Choisis une carrière</option>
+                {filteredCareer.map( career => {
+                    return(
+                        <option value={career}>{career}</option>
+                    )               
+                })}
             </select>
-            <button onClick={refresh()}>refresh</button>
             <label>Echelon</label>
             <select {...register("echelon", { required: true })}>
                 <option value="bronze">Bronze</option>

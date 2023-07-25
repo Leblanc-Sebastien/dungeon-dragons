@@ -8,17 +8,6 @@ export const constructionCharacter = {
         courtisan: ["artiste", "emissaire", "espion"]
     }
 }
-
-//let careerFilteredByraceAndClass = []
-
-
-// export const careerFiltered = (arrCreation, race, classe) =>{ 
-//     let careerFilteredByraceAndClass = arrCreation[race][classe]
-//     return careerFilteredByraceAndClass
-// }
-
-// console.log(careerFiltered(constructionCharacter ,"elfeSylvain", "citadin"))
-
 class Race {
 
     constructor(name) {
