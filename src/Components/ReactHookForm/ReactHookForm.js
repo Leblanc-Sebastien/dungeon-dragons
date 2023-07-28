@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./ReactHookForm.css"
 import { constructionCharacter as constructionCharacter } from "./dataWarHammer"
+import { constructionCareer as constructionCareer } from "./dataWarHammer"
 
 export default function ReactHookForm() {
 
@@ -57,18 +58,15 @@ export default function ReactHookForm() {
 
     const raceOnInput = (e) => {
         setRaceState(e)
-        // careerFiltered()
     }
 
     const classOnInput = (e) => {
         setClassState(e)
-        // careerFiltered()
     }
 
     useEffect( () => {
         if(raceState !== "" && classState !== ""){
-            careerFiltered()
-            console.log(JSON.stringify(filteredCareer))   
+            careerFiltered()  
         }
     }, [raceState, classState])
 
@@ -78,7 +76,9 @@ export default function ReactHookForm() {
         }      
     }
 
-    const arrClass = Object.keys(constructionCharacter.humain)
+    const arrClass2 = Object.keys(constructionCareer)
+    console.log(arrClass)
+    //console.log(arrClass2)
 
     return (
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
@@ -90,7 +90,7 @@ export default function ReactHookForm() {
                 <option value="humain">Humain</option>
                 <option value="halfeling">Halfeling</option>
                 <option value="nain">Nain</option>
-                <option value="Haut Elfe">Haut Elfe</option>
+                <option value="HautElfe">Haut Elfe</option>
                 <option value="elfeSylvain">Elfe Sylvain</option>
             </select>
             <label>Classe</label>
