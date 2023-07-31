@@ -13,6 +13,7 @@ export default function ReactHookForm() {
     const [careerState, setCareerState] = useState("")
     const [filteredCareer, setFilteredCareer] = useState([])
     const [fileteredCareerSuperiorState, setFilteredCareerSuperiorState] = useState([])
+    const [filteredStatutState, setFileredStatutState] = useState("")
 
     const [characters, setCharacters] = useState([
         {
@@ -55,7 +56,7 @@ export default function ReactHookForm() {
         }
         newArrCharacters.push(newCharacter)
         setCharacters(newArrCharacters)
-        //console.log(characters)
+        console.log(characters)
     }
 
     const raceOnInput = (e) => {
@@ -83,7 +84,7 @@ export default function ReactHookForm() {
             console.log(fileteredCareerSuperiorState)
         }
     }, [careerState])
-
+    
     const arrClass = Object.keys(constructionCharacter.humain)
 
     return (
@@ -145,26 +146,12 @@ export default function ReactHookForm() {
                     })}
                 </select>
                 <label>Plan de carrière</label>
-                <select {...register("careerPlan", { required: true })}>
-                    {/* {fileteredCareerSuperiorState.map(careerSuperior => {
-                        return(
-                            <option value={careerSuperior}>{careerSuperior}</option>
-                        )
-                    })} */}
-                </select>
-                <label>Echelon</label>
-                <select {...register("echelon", { required: true })}>
-                    <option value="bronze">Bronze</option>
-                    <option value="silver">Argent</option>
-                    <option value="gold">Or</option>
-                </select>
-                <label>Statut</label>
-                <select {...register("statut", { required: true })}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                <select {...register("careerPlan", { required: true })}>                   
+                        {Object.values(fileteredCareerSuperiorState).map(careerSuperior =>{
+                                return(                            
+                                    <option value={careerSuperior.name}>{careerSuperior.name}</option>                                                        
+                                )
+                            })}                       
                 </select>
                 <button type="submit">Validage</button>
             </div>
