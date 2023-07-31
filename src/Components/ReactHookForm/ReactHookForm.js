@@ -10,7 +10,9 @@ export default function ReactHookForm() {
 
     const [raceState, setRaceState] = useState("")
     const [classState, setClassState] = useState("")
+    const [careerState, setCareerState] = useState("")
     const [filteredCareer, setFilteredCareer] = useState([])
+    const [fileteredCareerSuperiorState, setFilteredCareerSuperiorState] = useState([])
 
     const [characters, setCharacters] = useState([
         {
@@ -53,7 +55,7 @@ export default function ReactHookForm() {
         }
         newArrCharacters.push(newCharacter)
         setCharacters(newArrCharacters)
-        console.log(characters)
+        //console.log(characters)
     }
 
     const raceOnInput = (e) => {
@@ -64,97 +66,108 @@ export default function ReactHookForm() {
         setClassState(e)
     }
 
-    useEffect( () => {
-        if(raceState !== "" && classState !== ""){
-            careerFiltered()  
+    const careerOnInput = (e) => {
+        setCareerState(e)
+        //console.log(JSON.stringify(careerState))
+    }
+
+    useEffect(() => {
+        if (raceState !== "" && classState !== "") {
+            setFilteredCareer(constructionCharacter[raceState][classState])
         }
     }, [raceState, classState])
 
-    const careerFiltered = () =>{ 
-        if(raceState != "" && classState != ""){
-            setFilteredCareer(constructionCharacter[raceState][classState])      
-        }      
-    }
+    useEffect(() => {
+        if (careerState !== "") {
+            setFilteredCareerSuperiorState(constructionCareer[careerState])
+            console.log(fileteredCareerSuperiorState)
+        }
+    }, [careerState])
 
-    const arrClass2 = Object.keys(constructionCareer)
-    console.log(arrClass)
-    //console.log(arrClass2)
+    const arrClass = Object.keys(constructionCharacter.humain)
 
     return (
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
-            <label>Nom</label>
-            <input defaultValue={"Michel"}{...register("name", { required: true, maxLength: 10, minLength: 2 })} />
-            <label>Race</label>
-            <select {...register("race", { required: true })} onChange={e => raceOnInput(e.target.value)}>
-                <option value="">Choisis une race</option>
-                <option value="humain">Humain</option>
-                <option value="halfeling">Halfeling</option>
-                <option value="nain">Nain</option>
-                <option value="HautElfe">Haut Elfe</option>
-                <option value="elfeSylvain">Elfe Sylvain</option>
-            </select>
-            <label>Classe</label>
-            <select {...register("class", { required: true })} onChange={e => classOnInput(e.target.value)}>
-                {<option value="">Choisis une classe</option>}
-                {arrClass.map(classe => {
-                    return (
-                        <option value={classe}>{classe}</option>
-                    )
-                })}
-            </select>
-            <label>Carrière</label>
-            <select {...register("career", {required: true})}>
-                {filteredCareer.map( career => {
-                    return(
-                        <option value={career}>{career}</option>
-                    )               
-                })}
-            </select>
-            <label>Echelon</label>
-            <select {...register("echelon", { required: true })}>
-                <option value="bronze">Bronze</option>
-                <option value="silver">Argent</option>
-                <option value="gold">Or</option>
-            </select>
-            <label>Plan de carrière</label>
-            <input defaultValue={"Tueur de troll supérieur"}{...register("careerPlan", { required: true, minLength: 2 })} />
-            <label>Statut</label>
-            <select {...register("statut", { required: true })}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label>Age</label>
-            <input defaultValue={36} type="number" {...register("age", { required: true, maxLength: 4, minLength: 1 })} />
-            <label>Taille</label>
-            <input defaultValue={123} type="number" {...register("height", { required: true, maxLength: 3, minLength: 1 })} />
-            <label>Cheveux</label>
-            <select {...register("hair", { required: true })}>
-                <option value="">Choisis une couleur de cheveux</option>
-                <option value="brun">Brun</option>
-                <option value="blond">Blond</option>
-                <option value="roux">Roux</option>
-                <option value="chatain">Chatain</option>
-                <option value="lgbt+">LGBT+</option>
-            </select>
-            <label>Yeux</label>
-            <select {...register("eyes", { required: true })}>
-                {/* <option value="">Choisis une couleur d'yeux</option> */}
-                <option value="noir">Noir</option>
-                <option value="bleu">bleu</option>
-                <option value="vert">vert</option>
-                <option value="marron">marron</option>
-                <option value="rouge">Rouge</option>
-                <option value="lgbt+">LGBT+</option>
-            </select>
-            <button type="submit">Validage</button>
-            {/* {raceState === "nain" ? (
-                <p>Je suis un NAIN</p>
-            ) : (
-                <p>Je suis rien</p>
-            )} */}
+            <div></div>
+            <div className="formPart1">
+                <label>Nom</label>
+                <input defaultValue={"Michel"}{...register("name", { required: true, maxLength: 10, minLength: 2 })} />
+                <label>Age</label>
+                <input defaultValue={36} type="number" {...register("age", { required: true, maxLength: 4, minLength: 1 })} />
+                <label>Taille</label>
+                <input defaultValue={123} type="number" {...register("height", { required: true, maxLength: 3, minLength: 1 })} />
+                <label>Cheveux</label>
+                <select {...register("hair", { required: true })}>
+                    <option value="">Choisis une couleur de cheveux</option>
+                    <option value="brun">Brun</option>
+                    <option value="blond">Blond</option>
+                    <option value="roux">Roux</option>
+                    <option value="chatain">Chatain</option>
+                    <option value="lgbt+">LGBT+</option>
+                </select>
+                <label>Yeux</label>
+                <select {...register("eyes", { required: true })}>
+                    {/* <option value="">Choisis une couleur d'yeux</option> */}
+                    <option value="noir">Noir</option>
+                    <option value="bleu">bleu</option>
+                    <option value="vert">vert</option>
+                    <option value="marron">marron</option>
+                    <option value="rouge">Rouge</option>
+                    <option value="lgbt+">LGBT+</option>
+                </select>
+            </div>
+            <div className="formPart2">
+                <label>Race</label>
+                <select {...register("race", { required: true })} onChange={e => raceOnInput(e.target.value)}>
+                    <option value="">Choisis une race</option>
+                    <option value="humain">Humain</option>
+                    <option value="halfeling">Halfeling</option>
+                    <option value="nain">Nain</option>
+                    <option value="hautElfe">Haut Elfe</option>
+                    <option value="elfeSylvain">Elfe Sylvain</option>
+                </select>
+                <label>Classe</label>
+                <select {...register("class", { required: true })} onChange={e => classOnInput(e.target.value)}>
+                    {<option value="">Choisis une classe</option>}
+                    {arrClass.map(classe => {
+                        return (
+                            <option value={classe}>{classe}</option>
+                        )
+                    })}
+                </select>
+                <label>Carrière</label>
+                <select {...register("career", { required: true })} onChange={e => careerOnInput(e.target.value)}>
+                    <option value="">Choisir une carrière</option>
+                    {filteredCareer.map(career => {
+                        return (
+                            <option value={career}>{career}</option>
+                        )
+                    })}
+                </select>
+                <label>Plan de carrière</label>
+                <select {...register("careerPlan", { required: true })}>
+                    {/* {fileteredCareerSuperiorState.map(careerSuperior => {
+                        return(
+                            <option value={careerSuperior}>{careerSuperior}</option>
+                        )
+                    })} */}
+                </select>
+                <label>Echelon</label>
+                <select {...register("echelon", { required: true })}>
+                    <option value="bronze">Bronze</option>
+                    <option value="silver">Argent</option>
+                    <option value="gold">Or</option>
+                </select>
+                <label>Statut</label>
+                <select {...register("statut", { required: true })}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit">Validage</button>
+            </div>
         </form>
     )
 }

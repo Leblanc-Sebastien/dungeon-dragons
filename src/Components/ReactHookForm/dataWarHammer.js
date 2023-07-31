@@ -1,44 +1,150 @@
 export const constructionCharacter = {
     humain: {
         citadin: ["agitateur", "artisan", "bourgeois", "enqueteur", "marchand", "mendiant", "milicien", "ratier"],
-        courtisan: ["artiste", "conseiller", "duelliste", "emissaire", "espion", "intendant", "noble", "serviteur"]
+        courtisan: ["artiste", "conseiller", "duelliste", "emissaire", "espion", "intendant", "noble", "serviteur"],
+        guerrier: ["cavalier", "chevalier", "garde", "gladiateur", "prêtre guerrier", "soldat", "spadassin"],
+        itinerant: ["chasseur de Primes", "cocher", "colporteur", "flagellant", "messager", "patrouilleur routier", "répurgateur", "saltimbanque"],
+        lettré: ["apothicaire", "érudit", "ingénieur", "juriste", "médecin", "nonne", "prêtre", "sorcier"],
+        riverain: ["batelier", "contrebandier", "débardeur", "femme du fleuve", "marin", "naufrageur", "nautonier", "patrouilleur fluvial"],
+        roublard: ["charlatan", "entremetteur", "hors-la-loi", " pilleur de tombes", "rançonneur", "receleur", "sorcier sauvage", "voleur"],
+        rural: ["bailli", "chasseur", "éclaireur", "herboriste", "mineur", "mystique", "sorcier de village", "villageois"]
     },
     halfeling: {
-        citadin: ["agitateur","mendiant", "milicien", "ratier"],
-        courtisan: ["duelliste", "emissaire", "espion", "intendant", "noble", "serviteur"]
+        citadin: ["agitateur", "artisan", "bourgeois", "enqueteur", "marchand", "mendiant", "milicien", "ratier"],
+        courtisan: ["artiste", "conseiller", "emissaire", "espion", "intendant", "noble", "serviteur"],
+        guerrier: ["garde", "gladiateur", "soldat",],
+        itinerant: ["chasseur de Primes", "cocher", "colporteur", "messager", "patrouilleur routier", "saltimbanque"],
+        lettré: ["apothicaire", "érudit", "ingénieur", "juriste", "médecin"],
+        riverain: ["batelier", "contrebandier", "débardeur", "femme du fleuve", "marin", "nautonier", "patrouilleur fluvial"],
+        roublard: ["charlatan", "entremetteur", "hors-la-loi", " pilleur de tombes", "rançonneur", "receleur", "voleur"],
+        rural: ["bailli", "chasseur", "éclaireur", "herboriste", "mineur", "villageois"]
     },
-    nain : {
-        citadin: ["artisan", "bourgeois", "enqueteur", "ratier"],
-        courtisan: ["artiste", "conseiller","espion", "intendant","serviteur"],
+    nain: {
+        citadin: ["agitateur", "artisan", "bourgeois", "enqueteur", "marchand", "mendiant", "milicien", "ratier"],
+        courtisan: ["artiste", "conseiller", "duelliste", "emissaire", "espion", "intendant", "noble", "serviteur"],
+        guerrier: ["garde", "gladiateur", "soldat", "spadassin", "tueur"],
+        itinerant: ["chasseur de Primes", "cocher", "colporteur", "messager", "saltimbanque"],
+        lettré: ["apothicaire", "érudit", "ingénieur", "juriste", "médecin"],
+        riverain: ["batelier", "contrebandier", "débardeur", "femme du fleuve", "marin", "naufrageur", "nautonier"],
+        roublard: ["hors-la-loi", "rançonneur", "receleur", "voleur"],
+        rural: ["bailli", "chasseur", "éclaireur", "mineur", "villageois"]
     },
-    HautElfe: {
-        citadin: ["agitateur", "milicien", "ratier"],
-        courtisan: ["artiste", "conseiller", "duelliste", "emissaire", "espion"]
+    hautElfe: {
+        citadin: ["artisan", "bourgeois", "enqueteur", "marchand", "milicien"],
+        courtisan: ["artiste", "conseiller", "duelliste", "emissaire", "espion", "intendant", "noble"],
+        guerrier: ["cavalier", "chevalier", "garde", "gladiateur", "soldat", "spadassin"],
+        itinerant: ["chasseur de Primes", "messager", "saltimbanque"],
+        lettré: ["apothicaire", "érudit", "juriste", "médecin", "sorcier"],
+        riverain: ["batelier", "contrebandier", "marin"],
+        roublard: ["charlatan", "entremetteur", "hors-la-loi"],
+        rural: ["chasseur", "éclaireur", "herboriste"]
     },
     elfeSylvain: {
         citadin: ["artisan"],
-        courtisan: ["artiste", "emissaire", "espion"]
+        courtisan: ["artiste", "conseiller", "emissaire", "espion", "noble"],
+        guerrier: ["cavalier", "chevalier", "garde", "gladiateur", "soldat"],
+        itinerant: ["chasseur de Primes", "messager", "saltimbanque"],
+        lettré: ["érudit", "sorcier"],
+        riverain: ["naufrageur"],
+        roublard: ["hors-la-loi"],
+        rural: ["chasseur", "éclaireur", "herboriste", "mystique"]
     }
 }
 
 export const constructionCareer = {
-    agitateur : ["agitateur1", "agitateur2"],
-    artisan : ["artisan1", "artisan2"],
-    bourgeois: ["bourgeois1", "bourgeois2"],
-    enqueteur: ["enqueteur1", "enqueteur2"],
-    marchand: ["marchand1", "marchand2"],
-    mendiant : ["mendiant1", "mendiant2"],
-    milicien: ["milicien1", "milicien2"],
-    ratier : ["ratier1", "ratier2"],
-    artiste: ["artiste1", "artiste2"],
-    conseiller: ["conseiller1", "conseiller2"],
-    duelliste: ["duelliste1", "duelliste2"],
-    emissaire: ["emissaire1", "emissaire2"],
-    espion : ["espion1", "espion2"],
-    intendant: ["intendant1", "intendant2"], 
-    noble: ["noble1", "noble2"],
-    serviteur : ["serviteur1", "serviteur2"]
+    agitateur :{
+        pamphletaire: {
+            name: "pamphletaire",
+            statut: "bronze 1",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        agitateur: {
+            name: "agitateur",
+            statut: "bronze 2",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        fauteurDeTrouble: {
+            name: "fauteur de trouble",
+            statut: "bronze 3",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        demagogue: {
+            name: "démagogue",
+            statut: "bronze 5",
+            competences : [],
+            talents : [],
+            possessions: []
+        }
+    },
+    artisan : {
+        apprenti: {
+            name: "apprenti",
+            statut: "bronze 2",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        artisan: {
+            name: "artisan",
+            statut: "argent 1",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        maitreArtisan: {
+            name: "maitre artisan",
+            statut: "argent 3",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        maitreDeGuilde: {
+            name: "maitre de guilde",
+            statut: "or 1",
+            competences : [],
+            talents : [],
+            possessions: []
+        }
+    },
+    bourgeois : {
+        greffier: {
+            name: "greffier",
+            statut: "argent 1",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        bourgeois: {
+            name: "bourgeois",
+            statut: "argent 2",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        conseillerMunicipal: {
+            name: "conseiller municipal",
+            statut: "argent 5",
+            competences : [],
+            talents : [],
+            possessions: []
+        },
+        bourgmestre: {
+            name: "bourgmestre",
+            statut: "or 1",
+            competences : [],
+            talents : [],
+            possessions: []
+        }
+    }
 }
+
+
 
 class Race {
 
@@ -47,7 +153,7 @@ class Race {
     }
 }
 
-class Classe extends Race{
+class Classe extends Race {
 
     constructor(name, race) {
         this.name = name
@@ -55,7 +161,7 @@ class Classe extends Race{
     }
 }
 
-class Career extends Classe{
+class Career extends Classe {
     constructor(name, classe) {
         this.name = name
         this.classe = classe

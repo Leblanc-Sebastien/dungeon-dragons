@@ -1,4 +1,16 @@
 .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: start;
+}
+
+.formPart1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formPart2{
     display: flex;
     flex-direction: column;
     align-items: center;
