@@ -13,7 +13,8 @@ export default function ReactHookForm() {
     const [careerState, setCareerState] = useState("")
     const [filteredCareer, setFilteredCareer] = useState([])
     const [fileteredCareerSuperiorState, setFilteredCareerSuperiorState] = useState([])
-    const [filteredStatutState, setFileredStatutState] = useState("bronze 1")
+    const [filteredCareerPlanState, setFilteredCareerPlanState ] = useState("")
+    const [filteredStatutState, setFilteredStatutState] = useState("")
 
     const [characters, setCharacters] = useState([
         {
@@ -69,8 +70,9 @@ export default function ReactHookForm() {
         setCareerState(e)
     }
 
-    const updateStatut = (newStatut) => {
-        setFileredStatutState(newStatut)
+    const careerPlanOnInput = (e) => {
+        setFilteredCareerPlanState(e)
+        //console.log(filteredCareerPlanState)
     }
 
     useEffect(() => {
@@ -82,17 +84,21 @@ export default function ReactHookForm() {
     useEffect(() => {
         if (careerState !== "") {
             setFilteredCareerSuperiorState(constructionCareer[careerState])
-            console.log(fileteredCareerSuperiorState)
+            //console.log(fileteredCareerSuperiorState)
         }
     }, [careerState])
 
     useEffect(() =>{
-        if(filteredStatutState !== ""){
-
+        if(filteredCareerPlanState !== ""){
+            const lowerCasePlanState = filteredCareerPlanState.toLowerCase()
+            setFilteredStatutState(constructionCareer[careerState][lowerCasePlanState].statut)
+            console.log(filteredStatutState)
         }
-    }, [filteredStatutState])
+    }, [filteredCareerPlanState])
     
     const arrClass = Object.keys(constructionCharacter.humain)
+
+    //console.log(constructionCareer)
 
     return (
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
@@ -153,16 +159,16 @@ export default function ReactHookForm() {
                     })}
                 </select>
                 <label>Plan de carrière</label>
-                <select {...register("careerPlan", { required: true })}>                   
-                        {Object.values(fileteredCareerSuperiorState).map(careerSuperior =>{
-                                return(                            
-                                    <option value={careerSuperior.name}>{careerSuperior.name} " {careerSuperior.statut} "</option>                                                                                
+                <select {...register("careerPlan", { required: true })} onChange={e => careerPlanOnInput(e.target.value)}>  
+                    <option value="">Choisir une spécialisation</option>     
+                    {Object.values(fileteredCareerSuperiorState).map(careerSuperior =>{
+                            return(                            
+                                <option value={careerSuperior.name}>{careerSuperior.name}</option>                                                                                
                                 )
-                            })}                       
+                        })}                       
                 </select>
                 <label>Statut</label>
                 <input type="text" defaultValue={filteredStatutState} {...register("statut", {required:true})} />
-                <p>{filteredStatutState}</p>
                 <button type="submit">Validage</button>
             </div>
         </form>

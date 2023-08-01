@@ -93,7 +93,7 @@ export const constructionCareer = {
         artisan: {
             name: "Artisan",
             statut: "argent 1",
-            competences : [],
+            competences : ["michel1", "michel2", "michel3"],
             talents : [],
             possessions: []
         },
@@ -107,7 +107,7 @@ export const constructionCareer = {
         maitreDeGuilde: {
             name: "Maitre de guilde",
             statut: "or 1",
-            competences : [],
+            competences : ["michel4", "michel5"],
             talents : [],
             possessions: []
         }
