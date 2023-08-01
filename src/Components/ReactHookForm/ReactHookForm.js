@@ -13,7 +13,7 @@ export default function ReactHookForm() {
     const [careerState, setCareerState] = useState("")
     const [filteredCareer, setFilteredCareer] = useState([])
     const [fileteredCareerSuperiorState, setFilteredCareerSuperiorState] = useState([])
-    const [filteredStatutState, setFileredStatutState] = useState("")
+    const [filteredStatutState, setFileredStatutState] = useState("bronze 1")
 
     const [characters, setCharacters] = useState([
         {
@@ -23,7 +23,6 @@ export default function ReactHookForm() {
             race: "Nain",
             class: "Guerrier",
             career: "prout",
-            echelon: "prout",
             careerPlan: "prout",
             statut: "prout",
             age: 36,
@@ -46,7 +45,6 @@ export default function ReactHookForm() {
             race: data.race,
             class: data.class,
             career: data.career,
-            echelon: data.echelon,
             careerPlan: data.careerPlan,
             statut: data.statut,
             age: data.age,
@@ -69,7 +67,10 @@ export default function ReactHookForm() {
 
     const careerOnInput = (e) => {
         setCareerState(e)
-        //console.log(JSON.stringify(careerState))
+    }
+
+    const updateStatut = (newStatut) => {
+        setFileredStatutState(newStatut)
     }
 
     useEffect(() => {
@@ -84,6 +85,12 @@ export default function ReactHookForm() {
             console.log(fileteredCareerSuperiorState)
         }
     }, [careerState])
+
+    useEffect(() =>{
+        if(filteredStatutState !== ""){
+
+        }
+    }, [filteredStatutState])
     
     const arrClass = Object.keys(constructionCharacter.humain)
 
@@ -99,7 +106,7 @@ export default function ReactHookForm() {
                 <input defaultValue={123} type="number" {...register("height", { required: true, maxLength: 3, minLength: 1 })} />
                 <label>Cheveux</label>
                 <select {...register("hair", { required: true })}>
-                    <option value="">Choisis une couleur de cheveux</option>
+                    {/* <option value="">Choisis une couleur de cheveux</option> */}
                     <option value="brun">Brun</option>
                     <option value="blond">Blond</option>
                     <option value="roux">Roux</option>
@@ -149,10 +156,13 @@ export default function ReactHookForm() {
                 <select {...register("careerPlan", { required: true })}>                   
                         {Object.values(fileteredCareerSuperiorState).map(careerSuperior =>{
                                 return(                            
-                                    <option value={careerSuperior.name}>{careerSuperior.name}</option>                                                        
+                                    <option value={careerSuperior.name}>{careerSuperior.name} " {careerSuperior.statut} "</option>                                                                                
                                 )
                             })}                       
                 </select>
+                <label>Statut</label>
+                <input type="text" defaultValue={filteredStatutState} {...register("statut", {required:true})} />
+                <p>{filteredStatutState}</p>
                 <button type="submit">Validage</button>
             </div>
         </form>

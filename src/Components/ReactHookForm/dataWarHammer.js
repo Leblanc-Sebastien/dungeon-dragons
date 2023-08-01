@@ -54,28 +54,28 @@ export const constructionCharacter = {
 export const constructionCareer = {
     agitateur :{
         pamphletaire: {
-            name: "pamphletaire",
+            name: "Pamphletaire",
             statut: "bronze 1",
             competences : [],
             talents : [],
             possessions: []
         },
         agitateur: {
-            name: "agitateur",
+            name: "Agitateur",
             statut: "bronze 2",
             competences : [],
             talents : [],
             possessions: []
         },
         fauteurDeTrouble: {
-            name: "fauteur de trouble",
+            name: "Fauteur de trouble",
             statut: "bronze 3",
             competences : [],
             talents : [],
             possessions: []
         },
         demagogue: {
-            name: "démagogue",
+            name: "Démagogue",
             statut: "bronze 5",
             competences : [],
             talents : [],
@@ -84,28 +84,28 @@ export const constructionCareer = {
     },
     artisan : {
         apprenti: {
-            name: "apprenti",
+            name: "Apprenti",
             statut: "bronze 2",
             competences : [],
             talents : [],
             possessions: []
         },
         artisan: {
-            name: "artisan",
+            name: "Artisan",
             statut: "argent 1",
             competences : [],
             talents : [],
             possessions: []
         },
         maitreArtisan: {
-            name: "maitre artisan",
+            name: "Maitre artisan",
             statut: "argent 3",
             competences : [],
             talents : [],
             possessions: []
         },
         maitreDeGuilde: {
-            name: "maitre de guilde",
+            name: "Maitre de guilde",
             statut: "or 1",
             competences : [],
             talents : [],
@@ -114,28 +114,28 @@ export const constructionCareer = {
     },
     bourgeois : {
         greffier: {
-            name: "greffier",
+            name: "Greffier",
             statut: "argent 1",
             competences : [],
             talents : [],
             possessions: []
         },
         bourgeois: {
-            name: "bourgeois",
+            name: "Bourgeois",
             statut: "argent 2",
             competences : [],
             talents : [],
             possessions: []
         },
         conseillerMunicipal: {
-            name: "conseiller municipal",
+            name: "Conseiller municipal",
             statut: "argent 5",
             competences : [],
             talents : [],
             possessions: []
         },
         bourgmestre: {
-            name: "bourgmestre",
+            name: "Bourgmestre",
             statut: "or 1",
             competences : [],
             talents : [],
@@ -143,8 +143,6 @@ export const constructionCareer = {
         }
     }
 }
-
-
 
 class Race {
 
