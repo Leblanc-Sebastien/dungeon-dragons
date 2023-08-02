@@ -56,9 +56,9 @@ export const constructionCareer = {
         pamphletaire: {
             name: "Pamphletaire",
             statut: "bronze 1",
-            competences : [],
-            talents : [],
-            possessions: []
+            competences : ["competence de pamphletaire1","competence de pamphletaire2","competence de pamphletaire3","competence de pamphletaire4"],
+            talents : ["talents de pamphletaire1","talents de pamphletaire2","talents de pamphletaire3","talents de pamphletaire4",],
+            possessions: ["possesion de pamphletaire1","possesion de pamphletaire2","possesion de pamphletaire3","possesion de pamphletaire4",]
         },
         agitateur: {
             name: "Agitateur",
@@ -75,7 +75,7 @@ export const constructionCareer = {
             possessions: []
         },
         demagogue: {
-            name: "Démagogue",
+            name: "Demagogue",
             statut: "bronze 5",
             competences : [],
             talents : [],

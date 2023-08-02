@@ -15,6 +15,7 @@ export default function ReactHookForm() {
     const [fileteredCareerSuperiorState, setFilteredCareerSuperiorState] = useState([])
     const [filteredCareerPlanState, setFilteredCareerPlanState] = useState("")
     const [filteredStatutState, setFilteredStatutState] = useState("")
+    const [careerObjectState, setCareerObjectState] = useState("")
 
     const [characters, setCharacters] = useState([
         {
@@ -75,16 +76,15 @@ export default function ReactHookForm() {
         //console.log(filteredCareerPlanState)
     }
 
-    const stringTransform = (data) => {
-        const newDataArr = data.split(' ')
-        const newDateArr2 = newDataArr.map(stringData => {
-            const newDataArr3 = stringData.charAt(0).toUpperCase()
-            return (console.log(JSON.stringify(newDataArr3)))
-        })
-        //console.log(newData)    
+    function camelCase(str) {
+        // converting all characters to lowercase
+        let ans = str.toLowerCase();
+     
+        // Returning string to camelcase
+        return ans.split(" ").reduce((s, c) => s
+            + (c.charAt(0).toUpperCase() + c.slice(1)));
+     
     }
-
-    stringTransform("Fauteur de trouble")
 
     useEffect(() => {
         if (raceState !== "" && classState !== "") {
@@ -101,9 +101,10 @@ export default function ReactHookForm() {
 
     useEffect(() => {
         if (filteredCareerPlanState !== "") {
-            const lowerCasePlanState = filteredCareerPlanState.toLowerCase()
-            setFilteredStatutState(constructionCareer[careerState][lowerCasePlanState].statut)
-            console.log(filteredStatutState)
+            const lowerCasePlanState = camelCase(filteredCareerPlanState)
+            setCareerObjectState(constructionCareer[careerState][lowerCasePlanState]) 
+            setFilteredStatutState(careerObjectState.statut)
+            console.log(careerObjectState)
         }
     }, [filteredCareerPlanState])
 
@@ -112,6 +113,7 @@ export default function ReactHookForm() {
     //console.log(constructionCareer)
 
     return (
+        <>
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
             <div></div>
             <div className="formPart1">
@@ -183,5 +185,40 @@ export default function ReactHookForm() {
                 <button type="submit">Validage</button>
             </div>
         </form>
+        {careerObjectState === "" ?(
+            <section>
+                <p>Choisir une carriere pour voir les talents</p>
+            </section>
+        ) : (
+            <section className="wrapperSkillz">
+                <h3>Compétences pour {careerObjectState.name}</h3>
+                <ul>
+                   {careerObjectState.competences.map( competences => {
+                    return (
+                        <li>{competences}</li>
+                    )
+                    })} 
+                </ul>
+                <h3>Talents pour {careerObjectState.name}</h3>
+                <ul>
+                   {careerObjectState.talents.map( talents => {
+                    return (
+                        <li>{talents}</li>
+                    )
+                    })} 
+                </ul>
+                <h3>Possessions pour {careerObjectState.name}</h3>
+                <ul>
+                   {careerObjectState.possessions.map( possessions => {
+                    return (
+                        <li>{possessions}</li>
+                    )
+                    })} 
+                </ul>
+                
+            </section>
+        )}   
+        
+        </>
     )
 }

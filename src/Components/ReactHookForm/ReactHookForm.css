@@ -56,3 +56,13 @@
     font-size: 15px;
     font-weight: 600;
 }
+
+.wrapperSkillz{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+li{
+    list-style: none;
+}
