@@ -13,7 +13,7 @@ export default function ReactHookForm() {
     const [careerState, setCareerState] = useState("")
     const [filteredCareer, setFilteredCareer] = useState([])
     const [fileteredCareerSuperiorState, setFilteredCareerSuperiorState] = useState([])
-    const [filteredCareerPlanState, setFilteredCareerPlanState ] = useState("")
+    const [filteredCareerPlanState, setFilteredCareerPlanState] = useState("")
     const [filteredStatutState, setFilteredStatutState] = useState("")
 
     const [characters, setCharacters] = useState([
@@ -75,6 +75,17 @@ export default function ReactHookForm() {
         //console.log(filteredCareerPlanState)
     }
 
+    const stringTransform = (data) => {
+        const newDataArr = data.split(' ')
+        const newDateArr2 = newDataArr.map(stringData => {
+            const newDataArr3 = stringData.charAt(0).toUpperCase()
+            return (console.log(JSON.stringify(newDataArr3)))
+        })
+        //console.log(newData)    
+    }
+
+    stringTransform("Fauteur de trouble")
+
     useEffect(() => {
         if (raceState !== "" && classState !== "") {
             setFilteredCareer(constructionCharacter[raceState][classState])
@@ -88,14 +99,14 @@ export default function ReactHookForm() {
         }
     }, [careerState])
 
-    useEffect(() =>{
-        if(filteredCareerPlanState !== ""){
+    useEffect(() => {
+        if (filteredCareerPlanState !== "") {
             const lowerCasePlanState = filteredCareerPlanState.toLowerCase()
             setFilteredStatutState(constructionCareer[careerState][lowerCasePlanState].statut)
             console.log(filteredStatutState)
         }
     }, [filteredCareerPlanState])
-    
+
     const arrClass = Object.keys(constructionCharacter.humain)
 
     //console.log(constructionCareer)
@@ -159,16 +170,16 @@ export default function ReactHookForm() {
                     })}
                 </select>
                 <label>Plan de carrière</label>
-                <select {...register("careerPlan", { required: true })} onChange={e => careerPlanOnInput(e.target.value)}>  
-                    <option value="">Choisir une spécialisation</option>     
-                    {Object.values(fileteredCareerSuperiorState).map(careerSuperior =>{
-                            return(                            
-                                <option value={careerSuperior.name}>{careerSuperior.name}</option>                                                                                
-                                )
-                        })}                       
+                <select {...register("careerPlan", { required: true })} onChange={e => careerPlanOnInput(e.target.value)}>
+                    <option value="">Choisir une spécialisation</option>
+                    {Object.values(fileteredCareerSuperiorState).map(careerSuperior => {
+                        return (
+                            <option value={careerSuperior.name}>{careerSuperior.name}</option>
+                        )
+                    })}
                 </select>
                 <label>Statut</label>
-                <input type="text" defaultValue={filteredStatutState} {...register("statut", {required:true})} />
+                <input type="text" defaultValue={filteredStatutState} {...register("statut", { required: true })} />
                 <button type="submit">Validage</button>
             </div>
         </form>
