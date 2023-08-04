@@ -6,6 +6,9 @@ import "./ReactHookForm.css"
 import { constructionCharacter as constructionCharacter } from "./dataWarHammer"
 import { constructionCareer as constructionCareer } from "./dataWarHammer"
 
+import Playground  from "../Mui/Autocomplete/Playground"
+
+
 export default function ReactHookForm() {
 
     const [raceState, setRaceState] = useState("")
@@ -114,6 +117,7 @@ export default function ReactHookForm() {
 
     return (
         <>
+        <Playground />
         <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
             <div></div>
             <div className="formPart1">

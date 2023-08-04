@@ -8,6 +8,10 @@ import CreateCharacterView from './Components/View/CreateCharacterView/CreateCha
 import ErrorView from './Components/View/ErrorPageView/ErrorView';
 import ContactView from './Components/View/ContactView/ContactView';
 import ReactHookForm from './Components/ReactHookForm/ReactHookForm'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const router = createBrowserRouter([
   {
