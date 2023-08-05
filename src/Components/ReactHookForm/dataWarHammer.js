@@ -143,25 +143,3 @@ export const constructionCareer = {
         }
     }
 }
-
-class Race {
-
-    constructor(name) {
-        this.name = name
-    }
-}
-
-class Classe extends Race {
-
-    constructor(name, race) {
-        this.name = name
-        this.race = race
-    }
-}
-
-class Career extends Classe {
-    constructor(name, classe) {
-        this.name = name
-        this.classe = classe
-    }
-}

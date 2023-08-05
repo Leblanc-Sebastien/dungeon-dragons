@@ -1,41 +1,44 @@
 import * as React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';
 
-export default function Playground() {
+export default function ComboBoxAutoComplete({ item, setItem }) {
+
+  const [inputValue, setInputValue] = useState('');
+
+  
+
+  useEffect(() => {
+    console.log(typeof setItem)
+    // setItem(inputValue)
+  }, [inputValue])
 
   const defaultProps = {
-    options: top100Films,
-    getOptionLabel: (option) => option.title,
+    options: item,
+    getOptionLabel: (option) => option.name,
   };
 
   const flatProps = {
-    options: top100Films.map((option) => option.title),
+    options: item.map((option) => option.name),
   };
-  
-  const [value, setValue] = React.useState(null);
 
   return (
-    <Stack spacing={1} sx={{ width: 300 }}>
+    <Stack spacing={3} sx={{ width: 300 }}>
       <Autocomplete
+        inputValue={inputValue}
+        onInputChange={(event, newInputValue) => {
+          setInputValue(newInputValue);
+        }}
         {...defaultProps}
-        id="disable-close-on-select"
-        disableCloseOnSelect
+        id="item-autocomplete"
+        clearOnEscape
         renderInput={(params) => (
-          <TextField {...params} label="disableCloseOnSelect" variant="standard" />
+          <TextField {...params} label="Label" variant="standard" />
         )}
-      />     
+      />
     </Stack>
   );
 }
-
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 },
-];
