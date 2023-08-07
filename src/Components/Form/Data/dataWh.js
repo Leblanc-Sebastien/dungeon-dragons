@@ -1,19 +1,23 @@
+import { v4 as uuidv4 } from 'uuid';
+
+export const labelRace = {label :"Race"}
+
 export const racesList = [
-    { name: 'Humain' },
-    { name: 'Nain' },
-    { name: 'Halfling' },
-    { name: 'Haut Elfe' },
-    { name: 'Elfe Sylvain' },
+    { id: uuidv4(), name: 'Humain' },
+    { id: uuidv4(), name: 'Nain' },
+    { id: uuidv4(), name: 'Halfling' },
+    { id: uuidv4(), name: 'Haut Elfe' },
+    { id: uuidv4(), name: 'Elfe Sylvain' },
 ];
 
 export const classList = [
-    { name: 'Citadin' },
-    { name: 'Courtisan' },
-    { name: 'Guerrier' },
-    { name: 'Lettré' },
-    { name: 'Riverain' },
-    { name: 'Roublard' },
-    { name: 'Rural' }
+    { id: uuidv4(), name: 'Citadin' },
+    { id: uuidv4(), name: 'Courtisan' },
+    { id: uuidv4(), name: 'Guerrier' },
+    { id: uuidv4(), name: 'Lettré' },
+    { id: uuidv4(), name: 'Riverain' },
+    { id: uuidv4(), name: 'Roublard' },
+    { id: uuidv4(), name: 'Rural' }
 ];
 
 export const constructionCharacter = {
