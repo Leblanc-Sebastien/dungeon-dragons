@@ -16,7 +16,7 @@
     align-items: center;
 }
 
-.wrapper input{
+/* .wrapper input{
     height: 30px;
     width: 250px;
     margin: 10px;
@@ -28,7 +28,7 @@
     border-color: #A0C49D;
     font-size: 15px;
     font-weight: 600;
-}
+} */
 
 .wrapper select{
     height: 30px;
@@ -44,7 +44,7 @@
     font-weight: 600;
 }
 
-.wrapper button{
+/* .wrapper button{
     height: 40px;
     width: 275px;
     margin-left: 10px;
@@ -55,7 +55,7 @@
     border-radius: 5px;
     font-size: 15px;
     font-weight: 600;
-}
+} */
 
 .wrapperSkillz{
     display: flex;

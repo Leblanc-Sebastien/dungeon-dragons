@@ -9,6 +9,24 @@ import { constructionCareer } from "./dataWarHammer"
 import ComboBoxAutoComplete from "../Mui/Autocomplete/Playground"
 
 
+const racesList = [
+    { name: 'Humain' },
+    { name: 'Nain' },
+    { name: 'Halfling' },
+    { name: 'Haut Elfe' },
+    { name: 'Elfe Sylvain' },
+];
+
+const classList = [
+    { name: 'Citadin' },
+    { name: 'Courtisan' },
+    { name: 'Guerrier' },
+    { name: 'Lettré' },
+    { name: 'Riverain' },
+    { name: 'Roublard' },
+    { name: 'Rural' }
+];
+
 export default function ReactHookForm() {
 
     const [raceState, setRaceState] = useState("")
@@ -19,8 +37,6 @@ export default function ReactHookForm() {
     const [filteredCareerPlanState, setFilteredCareerPlanState] = useState("")
     const [filteredStatutState, setFilteredStatutState] = useState("")
     const [careerObjectState, setCareerObjectState] = useState("")
-
-    const [muiRaceState, setMuiRaceState] = useState("")
 
     const [characters, setCharacters] = useState([
         {
@@ -39,7 +55,7 @@ export default function ReactHookForm() {
         }
     ])
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, control } = useForm()
 
     const onSubmit = (data) => {
 
@@ -64,12 +80,14 @@ export default function ReactHookForm() {
         //console.log(characters)
     }
 
-    const raceOnInput = (e) => {
-        setRaceState(e)
+    const onRaceChange = (newRace) => {
+        setRaceState(newRace)
+        console.log("usef", newRace)
     }
 
-    const classOnInput = (e) => {
-        setClassState(e)
+    const onClassChange = (newClass) => {
+        setClassState(newClass)
+        console.log(classState)
     }
 
     const careerOnInput = (e) => {
@@ -92,56 +110,35 @@ export default function ReactHookForm() {
     }
 
     useEffect(() => {
-        if (raceState !== "" && classState !== "") {
-            setFilteredCareer(constructionCharacter[raceState][classState])
-        }
-    }, [raceState, classState])
+        console.log("new", raceState)
+    }, [raceState])
 
-    useEffect(() => {
-        if (careerState !== "") {
-            setFilteredCareerSuperiorState(constructionCareer[careerState])
-            //console.log(fileteredCareerSuperiorState)
-        }
-    }, [careerState])
+    // useEffect(() => {
+    //     if (raceState !== "" && classState !== "") {
+    //         setFilteredCareer(constructionCharacter[raceState][classState])
+    //     }
+    // }, [raceState, classState])
 
-    useEffect(() => {
-        if (filteredCareerPlanState !== "") {
-            const lowerCasePlanState = camelCase(filteredCareerPlanState)
-            setCareerObjectState(constructionCareer[careerState][lowerCasePlanState])
-            setFilteredStatutState(careerObjectState.statut)
-            //console.log(careerObjectState)
-        }
-    }, [filteredCareerPlanState])
+    // useEffect(() => {
+    //     if (careerState !== "") {
+    //         setFilteredCareerSuperiorState(constructionCareer[careerState])
+    //         //console.log(fileteredCareerSuperiorState)
+    //     }
+    // }, [careerState])
+
+    // useEffect(() => {
+    //     if (filteredCareerPlanState !== "") {
+    //         const lowerCasePlanState = camelCase(filteredCareerPlanState)
+    //         setCareerObjectState(constructionCareer[careerState][lowerCasePlanState])
+    //         setFilteredStatutState(careerObjectState.statut)
+    //     }
+    // }, [filteredCareerPlanState])
 
     const arrClass = Object.keys(constructionCharacter.humain)
 
-    //console.log(constructionCareer)
-
-    const itemRace = [
-        { id: uuidv4(), name: 'Humain' },
-        { id: uuidv4(), name: 'Nain' },
-        { id: uuidv4(), name: 'Halfling' },
-        { id: uuidv4(), name: 'Haut Elfe' },
-        { id: uuidv4(), name: 'Elfe Sylvain' },
-    ];
-
-    const itemClass = [
-        { id: uuidv4(), name: 'Guerrier' },
-        { id: uuidv4(), name: 'Voleur' },
-        { id: uuidv4(), name: 'Chasseur' },
-        { id: uuidv4(), name: 'Druide' },
-        { id: uuidv4(), name: 'Démoniste' },
-    ];
-
-    const muiRaceOnInput = (newRace) => {
-        setMuiRaceState(newRace)
-        //console.log(muiRaceState)
-    }
-
     return (
         <>
-            <ComboBoxAutoComplete item={itemRace} setItem={muiRaceOnInput} />
-            <ComboBoxAutoComplete item={itemClass} />
+            {/* <ComboBoxAutoComplete item={itemClass} /> */}
             <form className="wrapper" onSubmit={handleSubmit(onSubmit)}>
                 <div></div>
                 <div className="formPart1">
@@ -172,7 +169,8 @@ export default function ReactHookForm() {
                     </select>
                 </div>
                 <div className="formPart2">
-                    <label>Race</label>
+                    <ComboBoxAutoComplete itemsList={racesList} onItemChange={onRaceChange} name="race" rules={{ required: true }} control={control} />
+                    {/* <label>Race</label>                
                     <select {...register("race", { required: true })} onChange={e => raceOnInput(e.target.value)}>
                         <option value="">Choisis une race</option>
                         <option value="humain">Humain</option>
@@ -180,8 +178,9 @@ export default function ReactHookForm() {
                         <option value="nain">Nain</option>
                         <option value="hautElfe">Haut Elfe</option>
                         <option value="elfeSylvain">Elfe Sylvain</option>
-                    </select>
-                    <label>Classe</label>
+                    </select> */}
+                    {/* <ComboBoxAutoComplete itemsList={classList} onItemChange={onClassChange} {...register("class", { required: true })}/>   */}
+                    {/* <label>Classe</label>
                     <select {...register("class", { required: true })} onChange={e => classOnInput(e.target.value)}>
                         {<option value="">Choisis une classe</option>}
                         {arrClass.map(classe => {
@@ -189,7 +188,7 @@ export default function ReactHookForm() {
                                 <option value={classe}>{classe}</option>
                             )
                         })}
-                    </select>
+                    </select> */}
                     <label>Carrière</label>
                     <select {...register("career", { required: true })} onChange={e => careerOnInput(e.target.value)}>
                         <option value="">Choisir une carrière</option>
