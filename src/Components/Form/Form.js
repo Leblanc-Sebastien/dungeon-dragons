@@ -3,11 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import "./Form.css"
 import { racesList, classList} from './Data/dataWh';
 import SelectCustom from './SelectCustom/SelectCustom';
+import InputCustom from './InputCustom/InputCustom'
 
 export default function Form() {
 
     const [raceState, setRaceState] = useState('')
     const [classeState, setClasseState] = useState('')
+    const [nameState, setNameState] = useState('')
+    const [ageState, setAgeState] = useState('')
 
     const onRaceChange = (newRace) => {
         setRaceState(newRace)  
@@ -17,14 +20,28 @@ export default function Form() {
         setClasseState(newClasse)     
     }
 
+    const onNameChange = (newName) => {
+        setNameState(newName)
+    }
+
+    const onAgeChange = (newAge) => {
+        setAgeState(newAge)
+    }
+
     useEffect(() =>{
         if(raceState !== ''){
             console.log(raceState)
         }
         if(classeState !== ''){
             console.log(classeState)
+        }
+        if(nameState != ''){
+            console.log(nameState)
+        }
+        if(ageState != ''){
+            console.log(ageState)
         }       
-    }, [raceState,classeState])
+    }, [raceState,classeState,nameState,ageState])
 
     return (
         <>  
@@ -39,6 +56,22 @@ export default function Form() {
                     itemLabel={"Classe"}
                     onItemChange={onClasseChange}
                 />
+                <InputCustom 
+                    itemLabel={'Nom'}
+                    itemType={'text'}
+                    itemMaxLength={10}
+                    itemMinLength={2}
+                    placeHolder={'Choisir un nom'}
+                    onItemChange={onNameChange}
+                />
+                <InputCustom 
+                    itemLabel={'Age'}
+                    itemType={'number'}
+                    itemMaxLength={3}
+                    itemMinLength={1}
+                    placeHolder={'Choisir un age'}
+                    onItemChange={onAgeChange}
+                />              
             </form>           
         </>
     )

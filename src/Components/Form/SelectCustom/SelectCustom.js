@@ -18,7 +18,7 @@ export default function SelectCustom(props) {
         <>
             <label>{props.itemLabel}</label>
             <select name={props.itemLabel} id={uuidv4()} onChange={e => setItemState(e.target.value)}>
-                <option value={props.itemLabel}>Choisir une {props.itemLabel}</option>
+                <option value={props.itemValue}>Choisir une {props.itemLabel}</option>
                 {props.itemsList.map((race) => {
                     return (
                         <option key={race.id} value={race.name} >{race.name}</option>
