@@ -17,14 +17,14 @@ export default function Form() {
         setClasseState(newClasse)     
     }
 
-    // useEffect(() =>{
-    //     if(raceState !== ''){
-    //         console.log(raceState)
-    //     }
-    //     if(classeState !== ''){
-    //         console.log(classeState)
-    //     }       
-    // }, [raceState,classeState])
+    useEffect(() =>{
+        if(raceState !== ''){
+            console.log(raceState)
+        }
+        if(classeState !== ''){
+            console.log(classeState)
+        }       
+    }, [raceState,classeState])
 
     return (
         <>  

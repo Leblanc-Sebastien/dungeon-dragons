@@ -8,9 +8,9 @@ export default function SelectCustom(props) {
 
     useEffect(() => {
         const validationTest = props.itemsList.filter((item) => item.name === itemState).length
-        console.log(validationTest, itemState)
         if (validationTest !== 0) {
-            props.onItemChange(itemState)
+            const itemObjectFiltered = props.itemsList.find( element => element.name === itemState)
+            props.onItemChange(itemObjectFiltered)
         }
     }, [itemState])
 
