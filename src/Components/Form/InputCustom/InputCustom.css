@@ -1,0 +1,12 @@
+
+.wrapper-form .input-style {
+    background-color: #E1ECC8;
+    color:#A0C49D;
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom: 4px solid #A0C49D;
+    font-size: 17px;
+    position: relative;
+  }
+  

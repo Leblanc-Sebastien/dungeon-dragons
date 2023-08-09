@@ -10,10 +10,11 @@ export default function InputCustom(props){
     useEffect(() => {
         props.onItemChange(itemState)
     },[itemState])
-
+     console.log(props)
     return(
         <>  <label>{props.itemLabel}</label>
             <input
+            className={props.classCustom}
             required 
             type={props.itemType} 
             placeholder={props.placeHolder} 

@@ -169,7 +169,12 @@ export default function ReactHookForm() {
                     </select>
                 </div>
                 <div className="formPart2">
-                    <ComboBoxAutoComplete itemsList={racesList} onItemChange={onRaceChange} name="race" rules={{ required: true }} control={control} />
+                    <ComboBoxAutoComplete 
+                        itemsList={racesList} 
+                        onItemChange={onRaceChange} 
+                        name="race" rules={{ required: true }} 
+                        control={control} 
+                    />
                     {/* <label>Race</label>                
                     <select {...register("race", { required: true })} onChange={e => raceOnInput(e.target.value)}>
                         <option value="">Choisis une race</option>

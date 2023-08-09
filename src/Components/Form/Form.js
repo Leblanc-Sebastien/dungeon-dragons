@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import "./Form.css"
-import { racesList, classList} from './Data/dataWh';
+import { racesList, classList } from './Data/dataWh';
 import SelectCustom from './SelectCustom/SelectCustom';
 import InputCustom from './InputCustom/InputCustom'
 
@@ -13,11 +13,11 @@ export default function Form() {
     const [ageState, setAgeState] = useState('')
 
     const onRaceChange = (newRace) => {
-        setRaceState(newRace)  
+        setRaceState(newRace)
     }
 
     const onClasseChange = (newClasse) => {
-        setClasseState(newClasse)     
+        setClasseState(newClasse)
     }
 
     const onNameChange = (newName) => {
@@ -28,35 +28,36 @@ export default function Form() {
         setAgeState(newAge)
     }
 
-    useEffect(() =>{
-        if(raceState !== ''){
+    useEffect(() => {
+        if (raceState !== '') {
             console.log(raceState)
         }
-        if(classeState !== ''){
+        if (classeState !== '') {
             console.log(classeState)
         }
-        if(nameState != ''){
+        if (nameState != '') {
             console.log(nameState)
         }
-        if(ageState != ''){
+        if (ageState != '') {
             console.log(ageState)
-        }       
-    }, [raceState,classeState,nameState,ageState])
+        }
+    }, [raceState, classeState, nameState, ageState])
 
     return (
-        <>  
+        <div className='wrapper-form'>
             <form action="">
                 <SelectCustom 
-                    itemsList={racesList} 
+                    itemsList={racesList}
                     itemLabel={"Race"}
                     onItemChange={onRaceChange}
                 />
-                <SelectCustom 
-                    itemsList={classList} 
+                <SelectCustom
+                    itemsList={classList}
                     itemLabel={"Classe"}
                     onItemChange={onClasseChange}
                 />
-                <InputCustom 
+                <InputCustom
+                    classCustom={"input-style"}
                     itemLabel={'Nom'}
                     itemType={'text'}
                     itemMaxLength={10}
@@ -64,15 +65,16 @@ export default function Form() {
                     placeHolder={'Choisir un nom'}
                     onItemChange={onNameChange}
                 />
-                <InputCustom 
+                <InputCustom
+                    classCustom={"input-style"}
                     itemLabel={'Age'}
                     itemType={'number'}
                     itemMaxLength={3}
                     itemMinLength={1}
                     placeHolder={'Choisir un age'}
                     onItemChange={onAgeChange}
-                />              
-            </form>           
-        </>
+                />
+            </form>
+        </div>
     )
 }
