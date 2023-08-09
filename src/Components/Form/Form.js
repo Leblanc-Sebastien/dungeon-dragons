@@ -4,6 +4,7 @@ import "./Form.css"
 import { racesList, classList } from './Data/dataWh';
 import SelectCustom from './SelectCustom/SelectCustom';
 import InputCustom from './InputCustom/InputCustom'
+import ButtonCustom from './ButtonCustom/ButtonCustom';
 
 export default function Form() {
 
@@ -11,6 +12,7 @@ export default function Form() {
     const [classeState, setClasseState] = useState('')
     const [nameState, setNameState] = useState('')
     const [ageState, setAgeState] = useState('')
+    const [characterState, setCharacterState] = useState({})
 
     const onRaceChange = (newRace) => {
         setRaceState(newRace)
@@ -28,32 +30,38 @@ export default function Form() {
         setAgeState(newAge)
     }
 
+    const onNewCharacter = (e) => {
+        e.preventDefault()
+        if(nameState !== '' && ageState !== '' && raceState !== '' && classeState !== ''){
+            const newCharacter = {
+                name: nameState,
+                age: ageState,
+                race: raceState,
+                classe: classeState
+            }
+        setCharacterState(newCharacter)
+        }        
+    }
+
     useEffect(() => {
-        if (raceState !== '') {
-            console.log(raceState)
-        }
-        if (classeState !== '') {
-            console.log(classeState)
-        }
-        if (nameState != '') {
-            console.log(nameState)
-        }
-        if (ageState != '') {
-            console.log(ageState)
-        }
-    }, [raceState, classeState, nameState, ageState])
+            console.log(characterState)     
+    }, [characterState])
 
     return (
         <div className='wrapper-form'>
-            <form action="">
+            <form action="" onSubmit={(e) => onNewCharacter(e)}>
                 <SelectCustom 
+                    classCustom={"input-style"}
                     itemsList={racesList}
                     itemLabel={"Race"}
+                    placeHolder={'Choisir une race'}
                     onItemChange={onRaceChange}
                 />
                 <SelectCustom
+                    classCustom={"input-style"}
                     itemsList={classList}
                     itemLabel={"Classe"}
+                    placeHolder={'Choisir une classe'}
                     onItemChange={onClasseChange}
                 />
                 <InputCustom
@@ -73,6 +81,10 @@ export default function Form() {
                     itemMinLength={1}
                     placeHolder={'Choisir un age'}
                     onItemChange={onAgeChange}
+                />
+                <ButtonCustom
+                    classCustom={"button-style"} 
+                    value={"Validation"}   
                 />
             </form>
         </div>
