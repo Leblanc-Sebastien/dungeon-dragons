@@ -1,4 +1,5 @@
 import Navbar from "./Components/Navbar/Navbar"
+import Drawer from "./Components/Drawer/Drawer";
 import "./App.css"
 import { Outlet } from "react-router-dom";
 import {Provider} from "react-redux"
@@ -14,6 +15,7 @@ export default function App() {
           <Navbar />
         </header>
         <main className="main-section">
+          <Drawer />
           <Outlet />
         </main>
         <footer className="footer"></footer>
