@@ -1,18 +1,29 @@
 import "./Drawer.css"
+import { useState } from "react"
+import imgSwords from "./img/double-sword.svg"
 
 
-export default function Drawer(){
 
-let dynamicMargin = "false"
+export default function Drawer() {
 
-const dynamicMarginOnclick = () => {
-    dynamicMargin = !dynamicMargin
-    console.log(dynamicMargin)  
-}
+    const [boolState, setBoolState] = useState(false)
 
-    return(
-        <div className={dynamicMargin ? "drawer" : "drawer-toggle"}>
-            <button className="button-drawer" onClick={() => dynamicMarginOnclick()}>slide</button>
+
+
+    const dynamicMarginOnclick = () => {
+        setBoolState(!boolState)
+    }
+
+    return (
+        <div className={boolState ? "drawer-toggle" : "drawer"}>
+            <img className="button-drawer" src={imgSwords} alt="double-sword" onClick={() => dynamicMarginOnclick()}/>
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+                <li>menu4</li>
+                <li>menu5</li>
+            </ul>
         </div>
     )
 }

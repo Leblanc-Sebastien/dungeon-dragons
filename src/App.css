@@ -20,9 +20,16 @@
   font-size: 120px;
 }
 
+.main-section{
+  display: flex;
+}
+
 .footer{
   background-color: #E1ECC8;
+  height: 200px;
 }
+
+
 
 
 

@@ -1,18 +1,22 @@
-.drawer{
+.drawer {
     background-color: #E1ECC8;
-    height: 100vw;
+    height: 100%;
     width: 300px;
-    margin-left: -210px; 
+    margin-left: -210px;
+    transition: 0.4s;
 }
 
-.drawer-toggle{
+.drawer-toggle {
     background-color: #E1ECC8;
-    height: 100vw;
+    height: 100%;
     width: 300px;
-    margin-left: 500px; 
+    margin-left: 0px;
+    transition: 0.4s;
 }
 
-.button-drawer{
+.button-drawer {
     margin-left: 200px;
     margin-top: 30px;
+    height: 70px;
+    cursor:pointer;
 }
