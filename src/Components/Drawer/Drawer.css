@@ -1,6 +1,6 @@
 .drawer {
     background-color: #E1ECC8;
-    height: 100%;
+    height: 600px;
     width: 300px;
     margin-left: -210px;
     transition: 0.4s;
@@ -8,7 +8,7 @@
 
 .drawer-toggle {
     background-color: #E1ECC8;
-    height: 100%;
+    height: 600px;
     width: 300px;
     margin-left: 0px;
     transition: 0.4s;
