@@ -6,6 +6,7 @@ import SelectCustom from './SelectCustom/SelectCustom';
 import InputCustom from './InputCustom/InputCustom'
 import ButtonCustom from './ButtonCustom/ButtonCustom';
 
+
 export default function Form() {
 
     const [raceState, setRaceState] = useState('')
@@ -56,6 +57,7 @@ export default function Form() {
                     itemLabel={"Race"}
                     placeHolder={'Choisir une race'}
                     onItemChange={onRaceChange}
+                    errorMessage={"La race n'est pas conforme !"}
                 />
                 <SelectCustom
                     classCustom={"input-style"}
@@ -63,6 +65,7 @@ export default function Form() {
                     itemLabel={"Classe"}
                     placeHolder={'Choisir une classe'}
                     onItemChange={onClasseChange}
+                    errorMessage={"La classe n'est pas conforme !"}
                 />
                 <InputCustom
                     classCustom={"input-style"}
@@ -84,7 +87,8 @@ export default function Form() {
                 />
                 <ButtonCustom
                     classCustom={"button-style"} 
-                    value={"Validation"}   
+                    value={"Validation"}  
+                    disabled 
                 />
             </form>
         </div>

@@ -1,0 +1,8 @@
+.snackBar{
+    background-color: rgba(223, 71, 71, 0.877);
+    color:rgb(255, 255, 255);
+    height: 35px;
+    border-radius: 7px;
+    margin-top: 10px;
+    transition: 2s;
+}

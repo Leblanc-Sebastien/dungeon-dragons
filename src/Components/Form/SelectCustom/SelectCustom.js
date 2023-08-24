@@ -1,18 +1,26 @@
 import { useEffect, useState } from 'react'
 import './SelectCustom.css'
 import { v4 as uuidv4 } from 'uuid';
+import SnackBarCustom from '../SnackBarCustom/SnackBarCustom';
 
 export default function SelectCustom(props) {
 
     const [itemState, setItemState] = useState('')
+    const [messageState, setMessageState] = useState('')
 
     useEffect(() => {
         const validationTest = props.itemsList.filter((item) => item.name === itemState).length
         if (validationTest !== 0) {
             const itemObjectFiltered = props.itemsList.find( element => element.name === itemState)
             props.onItemChange(itemObjectFiltered)
+            setMessageState('')
+            console.log("oui =>", messageState)
         }
-    }, [itemState])
+        else{
+            setMessageState(props.errorMessage)
+            console.log("non =>", messageState)
+        }
+    }, [itemState, messageState])
 
     return (
         <>
@@ -25,6 +33,13 @@ export default function SelectCustom(props) {
                     )
                 })}
             </select>
+            {messageState === '' ? (
+                <></>       
+            ): (
+                <SnackBarCustom 
+                message={messageState}
+                />  
+            )}
         </>
     )
 }

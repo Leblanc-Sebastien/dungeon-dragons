@@ -51,6 +51,7 @@ export default function TableCharacters() {
                         })}
                     </tbody>
                 </table>
+                
             )
             }
         </div>
